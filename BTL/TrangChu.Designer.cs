@@ -262,7 +262,7 @@ namespace BTL
             this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton3.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
             this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Image = global::BTL.Properties.Resources.home1;
+            this.rjButton3.Image = global::BTL.Properties.Resources.home;
             this.rjButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rjButton3.Location = new System.Drawing.Point(10, 220);
             this.rjButton3.Name = "rjButton3";
@@ -287,7 +287,7 @@ namespace BTL
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Image = global::BTL.Properties.Resources.money_bag1;
+            this.rjButton2.Image = global::BTL.Properties.Resources.money_bag;
             this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rjButton2.Location = new System.Drawing.Point(10, 140);
             this.rjButton2.Name = "rjButton2";

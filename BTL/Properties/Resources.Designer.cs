@@ -65,7 +65,7 @@ namespace BTL.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _3844470_home_house_110332 {
             get {
-                object obj = ResourceManager.GetObject("3844470-home-house_110332", resourceCulture);
+                object obj = ResourceManager.GetObject("_3844470_home_house_110332", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,7 @@ namespace BTL.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Best_Seller_PNG {
             get {
-                object obj = ResourceManager.GetObject("Best-Seller-PNG", resourceCulture);
+                object obj = ResourceManager.GetObject("Best_Seller_PNG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,19 @@ namespace BTL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bunker_hover {
+            get {
+                object obj = ResourceManager.GetObject("bunker_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dinner_table {
             get {
-                object obj = ResourceManager.GetObject("dinner-table", resourceCulture);
+                object obj = ResourceManager.GetObject("dinner_table", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,19 +133,9 @@ namespace BTL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home1 {
-            get {
-                object obj = ResourceManager.GetObject("home1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap money_bag {
             get {
-                object obj = ResourceManager.GetObject("money-bag", resourceCulture);
+                object obj = ResourceManager.GetObject("money_bag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -145,7 +145,7 @@ namespace BTL.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap money_bag__1_ {
             get {
-                object obj = ResourceManager.GetObject("money-bag-(1)", resourceCulture);
+                object obj = ResourceManager.GetObject("money_bag__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace BTL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap money_bag1 {
+        internal static System.Drawing.Bitmap money_bag_hover {
             get {
-                object obj = ResourceManager.GetObject("money-bag1", resourceCulture);
+                object obj = ResourceManager.GetObject("money_bag_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,6 +173,16 @@ namespace BTL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap programmer1 {
+            get {
+                object obj = ResourceManager.GetObject("programmer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap statistics {
             get {
                 object obj = ResourceManager.GetObject("statistics", resourceCulture);
@@ -183,9 +193,19 @@ namespace BTL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap statistics_hover {
+            get {
+                object obj = ResourceManager.GetObject("statistics_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap top_140_mau_logo_nha_hang_dep_thu_hut_thuc_khach16 {
             get {
-                object obj = ResourceManager.GetObject("top-140-mau-logo-nha-hang-dep-thu-hut-thuc-khach16", resourceCulture);
+                object obj = ResourceManager.GetObject("top_140_mau_logo_nha_hang_dep_thu_hut_thuc_khach16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

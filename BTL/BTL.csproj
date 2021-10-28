@@ -70,6 +70,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -144,14 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ThemMon.resx">
       <DependentUpon>ThemMon.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,41 +199,57 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="imgs\home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\3844470-home-house_110332.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\home-hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\money-bag.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\statistics.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\bunker.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\user.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\programmer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\dinner-table.png" />
+    <None Include="Resources\home-hover.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="imgs\money-bag-%281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imgs\Best-Seller-PNG.png" />
+    <None Include="imgs\money-bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\money-bag-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\programmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\programmer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\statistics-hover.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="imgs\top-140-mau-logo-nha-hang-dep-thu-hut-thuc-khach16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\3844470-home-house_110332.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\Best-Seller-PNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\bunker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\bunker-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\dinner-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\home-hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

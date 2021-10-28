@@ -36,54 +36,54 @@ namespace BTL
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -180,6 +180,16 @@ namespace BTL
             this.label3.Text = "Đang Online";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BTL.Properties.Resources.programmer;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -212,6 +222,16 @@ namespace BTL
             this.label8.Text = "Bàn Trống";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::BTL.Properties.Resources.dinner_table;
+            this.pictureBox3.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -234,67 +254,22 @@ namespace BTL
             this.panel3.Size = new System.Drawing.Size(438, 363);
             this.panel3.TabIndex = 4;
             // 
-            // label5
+            // panel13
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 18);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Nguyễn Hữu An";
+            this.panel13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Location = new System.Drawing.Point(29, 322);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(390, 16);
+            this.panel13.TabIndex = 17;
             // 
-            // panel5
+            // panel14
             // 
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Location = new System.Drawing.Point(29, 83);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(390, 16);
-            this.panel5.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(327, 16);
-            this.panel7.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 108);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 18);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Trần Đăng Chương";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(24, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(164, 25);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Mức độ đóng góp";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel6.Controls.Add(this.panel8);
-            this.panel6.Location = new System.Drawing.Point(29, 132);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(390, 16);
-            this.panel6.TabIndex = 13;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(327, 16);
-            this.panel8.TabIndex = 3;
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(327, 16);
+            this.panel14.TabIndex = 3;
             // 
             // panel9
             // 
@@ -313,58 +288,6 @@ namespace BTL
             this.panel10.Size = new System.Drawing.Size(327, 16);
             this.panel10.TabIndex = 3;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 204);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 18);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Phạm Minh Hiếu";
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Location = new System.Drawing.Point(29, 179);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(390, 16);
-            this.panel11.TabIndex = 15;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(327, 16);
-            this.panel12.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 158);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 18);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Phan Khánh Duy";
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel13.Controls.Add(this.panel14);
-            this.panel13.Location = new System.Drawing.Point(29, 322);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(390, 16);
-            this.panel13.TabIndex = 17;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(327, 16);
-            this.panel14.TabIndex = 3;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -373,6 +296,23 @@ namespace BTL
             this.label11.Size = new System.Drawing.Size(102, 18);
             this.label11.TabIndex = 16;
             this.label11.Text = "Trần Tấn Nhựt";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.panel8);
+            this.panel6.Location = new System.Drawing.Point(29, 132);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(390, 16);
+            this.panel6.TabIndex = 13;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(327, 16);
+            this.panel8.TabIndex = 3;
             // 
             // panel15
             // 
@@ -400,6 +340,86 @@ namespace BTL
             this.label12.TabIndex = 14;
             this.label12.Text = "Trần Mặc Khải";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 204);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 18);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Phạm Minh Hiếu";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.Location = new System.Drawing.Point(24, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(164, 25);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Mức độ đóng góp";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Location = new System.Drawing.Point(29, 179);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(390, 16);
+            this.panel11.TabIndex = 15;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(327, 16);
+            this.panel12.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 158);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(118, 18);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Phan Khánh Duy";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(133, 18);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Trần Đăng Chương";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Location = new System.Drawing.Point(29, 83);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(390, 16);
+            this.panel5.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(327, 16);
+            this.panel7.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 62);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 18);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Nguyễn Hữu An";
+            // 
             // panel17
             // 
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -415,45 +435,15 @@ namespace BTL
             this.panel17.Size = new System.Drawing.Size(506, 160);
             this.panel17.TabIndex = 5;
             // 
-            // label14
+            // label19
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label14.Location = new System.Drawing.Point(271, 28);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 25);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Sea Food";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label15.Location = new System.Drawing.Point(155, 28);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(106, 25);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Nhà Hàng:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label16.Location = new System.Drawing.Point(155, 65);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 25);
-            this.label16.TabIndex = 17;
-            this.label16.Text = "Địa chỉ:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label17.Location = new System.Drawing.Point(271, 65);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(129, 25);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "Q.9, Tp.HCM";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label19.Location = new System.Drawing.Point(271, 103);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(132, 25);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "056.929.3181";
             // 
             // label18
             // 
@@ -465,15 +455,45 @@ namespace BTL
             this.label18.TabIndex = 19;
             this.label18.Text = "SĐT:";
             // 
-            // label19
+            // label17
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label19.Location = new System.Drawing.Point(271, 103);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(132, 25);
-            this.label19.TabIndex = 20;
-            this.label19.Text = "056.929.3181";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label17.Location = new System.Drawing.Point(271, 65);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(129, 25);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "Q.9, Tp.HCM";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label16.Location = new System.Drawing.Point(155, 65);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(77, 25);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "Địa chỉ:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label15.Location = new System.Drawing.Point(155, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(106, 25);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Nhà Hàng:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label14.Location = new System.Drawing.Point(271, 28);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 25);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Sea Food";
             // 
             // pictureBox2
             // 
@@ -484,26 +504,6 @@ namespace BTL
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::BTL.Properties.Resources.dinner_table;
-            this.pictureBox3.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BTL.Properties.Resources.programmer;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label20
             // 
@@ -532,21 +532,21 @@ namespace BTL
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
