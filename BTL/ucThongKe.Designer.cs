@@ -113,37 +113,37 @@ namespace BTL
             // 
             // rjButton1
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton1.BorderRadius = 20;
             this.rjButton1.BorderSize = 0;
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(557, 8);
+            this.rjButton1.Location = new System.Drawing.Point(575, 8);
             this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(218, 46);
+            this.rjButton1.Size = new System.Drawing.Size(189, 46);
             this.rjButton1.TabIndex = 4;
-            this.rjButton1.Text = "rjButton1";
+            this.rjButton1.Text = "Thống kê";
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
             // rjButton2
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton2.BorderRadius = 20;
             this.rjButton2.BorderSize = 0;
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(781, 8);
+            this.rjButton2.Location = new System.Drawing.Point(793, 8);
             this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(206, 46);
+            this.rjButton2.Size = new System.Drawing.Size(194, 46);
             this.rjButton2.TabIndex = 5;
-            this.rjButton2.Text = "rjButton2";
+            this.rjButton2.Text = "Xuất file Excel";
             this.rjButton2.TextColor = System.Drawing.Color.White;
             this.rjButton2.UseVisualStyleBackColor = false;
             // 

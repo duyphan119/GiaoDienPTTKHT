@@ -15,6 +15,7 @@ namespace BTL
         public ucDanhMuc()
         {
             InitializeComponent();
+            panel1.Controls.Add(new ucQuanLyTaiKhoan());
         }
 
         private void btnManagerAcount_Click(object sender, EventArgs e)
@@ -39,6 +40,11 @@ namespace BTL
         {
             panel1.Controls.Clear();
             panel1.Controls.Add(new ucQuanLyThucDon());
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

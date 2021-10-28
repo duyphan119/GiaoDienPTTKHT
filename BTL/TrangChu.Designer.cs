@@ -51,7 +51,7 @@ namespace BTL
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Blue;
+            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.panel4);
@@ -71,7 +71,7 @@ namespace BTL
             this.button1.AutoSize = true;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,7 +89,7 @@ namespace BTL
             this.button2.AutoSize = true;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,7 +106,7 @@ namespace BTL
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Blue;
+            this.panel4.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel4.Controls.Add(this.button8);
             this.panel4.Controls.Add(this.button7);
             this.panel4.Location = new System.Drawing.Point(1001, 45);
@@ -149,7 +149,7 @@ namespace BTL
             this.button6.AutoSize = true;
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,7 +187,7 @@ namespace BTL
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Blue;
+            this.panel3.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel3.Controls.Add(this.rjButton5);
             this.panel3.Controls.Add(this.rjButton4);
             this.panel3.Controls.Add(this.rjButton3);
@@ -202,11 +202,12 @@ namespace BTL
             // 
             // rjButton5
             // 
-            this.rjButton5.BackColor = System.Drawing.Color.Blue;
-            this.rjButton5.BackgroundColor = System.Drawing.Color.Blue;
+            this.rjButton5.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton5.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.rjButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton5.BorderRadius = 20;
             this.rjButton5.BorderSize = 0;
+            this.rjButton5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton5.FlatAppearance.BorderSize = 0;
             this.rjButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -227,11 +228,12 @@ namespace BTL
             // 
             // rjButton4
             // 
-            this.rjButton4.BackColor = System.Drawing.Color.Blue;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.Blue;
+            this.rjButton4.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton4.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton4.BorderRadius = 20;
             this.rjButton4.BorderSize = 0;
+            this.rjButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton4.FlatAppearance.BorderSize = 0;
             this.rjButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -252,11 +254,12 @@ namespace BTL
             // 
             // rjButton3
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.Blue;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.Blue;
+            this.rjButton3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton3.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton3.BorderRadius = 20;
             this.rjButton3.BorderSize = 0;
+            this.rjButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton3.FlatAppearance.BorderSize = 0;
             this.rjButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -277,11 +280,12 @@ namespace BTL
             // 
             // rjButton2
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.Blue;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.Blue;
+            this.rjButton2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton2.BorderRadius = 20;
             this.rjButton2.BorderSize = 0;
+            this.rjButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -307,11 +311,12 @@ namespace BTL
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton1.BorderRadius = 20;
             this.rjButton1.BorderSize = 0;
+            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
-            this.rjButton1.ForeColor = System.Drawing.Color.Blue;
+            this.rjButton1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.rjButton1.Image = global::BTL.Properties.Resources.home_hover;
             this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rjButton1.Location = new System.Drawing.Point(10, 60);
@@ -319,7 +324,7 @@ namespace BTL
             this.rjButton1.Size = new System.Drawing.Size(223, 60);
             this.rjButton1.TabIndex = 0;
             this.rjButton1.Text = "Trang Chủ";
-            this.rjButton1.TextColor = System.Drawing.Color.Blue;
+            this.rjButton1.TextColor = System.Drawing.Color.RoyalBlue;
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             this.rjButton1.MouseLeave += new System.EventHandler(this.rjButton1_MouseLeave);

@@ -29,7 +29,6 @@ namespace BTL
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.btnConfirmAddDish = new MetroFramework.Controls.MetroButton();
             this.Dish15 = new MetroFramework.Controls.MetroTile();
             this.Dish14 = new MetroFramework.Controls.MetroTile();
@@ -49,26 +48,13 @@ namespace BTL
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // metroComboBox1
-            // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 24;
-            this.metroComboBox1.Items.AddRange(new object[] {
-            "Giải khát",
-            "Đồ nướng",
-            "Chiên Xào"});
-            this.metroComboBox1.Location = new System.Drawing.Point(609, 76);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(147, 30);
-            this.metroComboBox1.TabIndex = 5;
-            this.metroComboBox1.UseSelectable = true;
-            // 
             // btnConfirmAddDish
             // 
-            this.btnConfirmAddDish.BackColor = System.Drawing.Color.Chartreuse;
+            this.btnConfirmAddDish.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnConfirmAddDish.Location = new System.Drawing.Point(522, 304);
             this.btnConfirmAddDish.Name = "btnConfirmAddDish";
             this.btnConfirmAddDish.Size = new System.Drawing.Size(209, 65);
@@ -80,7 +66,7 @@ namespace BTL
             // Dish15
             // 
             this.Dish15.ActiveControl = null;
-            this.Dish15.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish15.Location = new System.Drawing.Point(594, 220);
             this.Dish15.Name = "Dish15";
             this.Dish15.Size = new System.Drawing.Size(137, 78);
@@ -93,7 +79,7 @@ namespace BTL
             // Dish14
             // 
             this.Dish14.ActiveControl = null;
-            this.Dish14.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish14.Location = new System.Drawing.Point(451, 220);
             this.Dish14.Name = "Dish14";
             this.Dish14.Size = new System.Drawing.Size(137, 78);
@@ -106,7 +92,7 @@ namespace BTL
             // Dish13
             // 
             this.Dish13.ActiveControl = null;
-            this.Dish13.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish13.Location = new System.Drawing.Point(308, 220);
             this.Dish13.Name = "Dish13";
             this.Dish13.Size = new System.Drawing.Size(137, 78);
@@ -119,7 +105,7 @@ namespace BTL
             // Dish12
             // 
             this.Dish12.ActiveControl = null;
-            this.Dish12.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish12.Location = new System.Drawing.Point(165, 220);
             this.Dish12.Name = "Dish12";
             this.Dish12.Size = new System.Drawing.Size(137, 78);
@@ -132,7 +118,7 @@ namespace BTL
             // Dish11
             // 
             this.Dish11.ActiveControl = null;
-            this.Dish11.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish11.Location = new System.Drawing.Point(22, 220);
             this.Dish11.Name = "Dish11";
             this.Dish11.Size = new System.Drawing.Size(137, 78);
@@ -145,7 +131,7 @@ namespace BTL
             // Dish10
             // 
             this.Dish10.ActiveControl = null;
-            this.Dish10.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish10.Location = new System.Drawing.Point(594, 120);
             this.Dish10.Name = "Dish10";
             this.Dish10.Size = new System.Drawing.Size(137, 78);
@@ -158,7 +144,7 @@ namespace BTL
             // Dish9
             // 
             this.Dish9.ActiveControl = null;
-            this.Dish9.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish9.Location = new System.Drawing.Point(451, 120);
             this.Dish9.Name = "Dish9";
             this.Dish9.Size = new System.Drawing.Size(137, 78);
@@ -171,7 +157,7 @@ namespace BTL
             // Dish8
             // 
             this.Dish8.ActiveControl = null;
-            this.Dish8.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish8.Location = new System.Drawing.Point(308, 120);
             this.Dish8.Name = "Dish8";
             this.Dish8.Size = new System.Drawing.Size(137, 78);
@@ -184,7 +170,7 @@ namespace BTL
             // Dish7
             // 
             this.Dish7.ActiveControl = null;
-            this.Dish7.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish7.Location = new System.Drawing.Point(165, 120);
             this.Dish7.Name = "Dish7";
             this.Dish7.Size = new System.Drawing.Size(137, 78);
@@ -197,7 +183,7 @@ namespace BTL
             // Dish6
             // 
             this.Dish6.ActiveControl = null;
-            this.Dish6.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish6.Location = new System.Drawing.Point(22, 120);
             this.Dish6.Name = "Dish6";
             this.Dish6.Size = new System.Drawing.Size(137, 78);
@@ -210,7 +196,7 @@ namespace BTL
             // Dish5
             // 
             this.Dish5.ActiveControl = null;
-            this.Dish5.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish5.Location = new System.Drawing.Point(594, 22);
             this.Dish5.Name = "Dish5";
             this.Dish5.Size = new System.Drawing.Size(137, 78);
@@ -223,7 +209,7 @@ namespace BTL
             // Dish4
             // 
             this.Dish4.ActiveControl = null;
-            this.Dish4.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish4.Location = new System.Drawing.Point(451, 22);
             this.Dish4.Name = "Dish4";
             this.Dish4.Size = new System.Drawing.Size(137, 78);
@@ -236,7 +222,7 @@ namespace BTL
             // Dish3
             // 
             this.Dish3.ActiveControl = null;
-            this.Dish3.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish3.Location = new System.Drawing.Point(308, 22);
             this.Dish3.Name = "Dish3";
             this.Dish3.Size = new System.Drawing.Size(137, 78);
@@ -249,7 +235,7 @@ namespace BTL
             // Dish2
             // 
             this.Dish2.ActiveControl = null;
-            this.Dish2.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish2.Location = new System.Drawing.Point(165, 22);
             this.Dish2.Name = "Dish2";
             this.Dish2.Size = new System.Drawing.Size(137, 78);
@@ -262,7 +248,7 @@ namespace BTL
             // Dish1
             // 
             this.Dish1.ActiveControl = null;
-            this.Dish1.BackColor = System.Drawing.Color.PaleGreen;
+            this.Dish1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Dish1.Location = new System.Drawing.Point(22, 22);
             this.Dish1.Name = "Dish1";
             this.Dish1.Size = new System.Drawing.Size(137, 78);
@@ -293,7 +279,7 @@ namespace BTL
             // 
             // metroPanel1
             // 
-            this.metroPanel1.BackColor = System.Drawing.Color.Aquamarine;
+            this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroPanel1.Controls.Add(this.btnConfirmAddDish);
             this.metroPanel1.Controls.Add(this.Dish15);
             this.metroPanel1.Controls.Add(this.Dish14);
@@ -324,6 +310,22 @@ namespace BTL
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 24;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "Giải khát",
+            "Đồ nướng",
+            "Chiên Xào"});
+            this.metroComboBox1.Location = new System.Drawing.Point(608, 73);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.PromptText = "Nhóm món";
+            this.metroComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.metroComboBox1.Size = new System.Drawing.Size(147, 30);
+            this.metroComboBox1.TabIndex = 5;
+            this.metroComboBox1.UseSelectable = true;
+            // 
             // ThemMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -333,7 +335,7 @@ namespace BTL
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroPanel1);
             this.Name = "ThemMon";
-            this.Text = "ThemMon";
+            this.Text = "Thêm Món";
             this.Load += new System.EventHandler(this.ThemMon_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
@@ -343,8 +345,6 @@ namespace BTL
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private MetroFramework.Controls.MetroButton btnConfirmAddDish;
         private MetroFramework.Controls.MetroTile Dish15;
         private MetroFramework.Controls.MetroTile Dish14;
@@ -364,5 +364,6 @@ namespace BTL
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
     }
 }
