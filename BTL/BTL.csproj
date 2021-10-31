@@ -199,7 +199,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="imgs\user-login.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home-hover.png" />
   </ItemGroup>
@@ -250,6 +252,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="imgs\home-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\password-login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

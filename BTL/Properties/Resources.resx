@@ -118,35 +118,50 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Best_Seller_PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\Best-Seller-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bunker" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\bunker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bunker_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\bunker-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dinner_table" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\dinner-table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="money_bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\money-bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="money_bag_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\money-bag-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="programmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\programmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="money_bag__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\money-bag-(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="programmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\programmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_3844470_home_house_110332" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\3844470-home-house_110332.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dinner_table" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\dinner-table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="top_140_mau_logo_nha_hang_dep_thu_hut_thuc_khach16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\top-140-mau-logo-nha-hang-dep-thu-hut-thuc-khach16.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user-login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\user-login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="money_bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\money-bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bunker_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\bunker-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Best_Seller_PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\Best-Seller-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statistics_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\statistics-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="money_bag_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\money-bag-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bunker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\bunker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="programmer1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\programmer1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,16 +169,7 @@
   <data name="statistics" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\statistics.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="statistics_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\statistics-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="top_140_mau_logo_nha_hang_dep_thu_hut_thuc_khach16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\top-140-mau-logo-nha-hang-dep-thu-hut-thuc-khach16.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_3844470_home_house_110332" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\3844470-home-house_110332.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="password-login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\password-login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

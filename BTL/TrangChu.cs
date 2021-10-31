@@ -40,23 +40,23 @@ namespace BTL
             }
             panel4.Visible = false;
             rjButton1.ForeColor = Color.White;
-            rjButton1.BackColor = Color.Blue;
+            rjButton1.BackColor = Color.RoyalBlue;
             Image img1 = Image.FromFile(@"..\..\imgs\home.png");
             rjButton1.Image = img1;
             rjButton2.ForeColor = Color.White;
-            rjButton2.BackColor = Color.Blue;
+            rjButton2.BackColor = Color.RoyalBlue;
             Image img2 = Image.FromFile(@"..\..\imgs\money-bag.png");
             rjButton2.Image = img2;
             rjButton3.ForeColor = Color.White;
-            rjButton3.BackColor = Color.Blue;
+            rjButton3.BackColor = Color.RoyalBlue;
             Image img3 = Image.FromFile(@"..\..\imgs\home.png");
             rjButton3.Image = img3;
             rjButton4.ForeColor = Color.White;
-            rjButton4.BackColor = Color.Blue;
+            rjButton4.BackColor = Color.RoyalBlue;
             Image img4 = Image.FromFile(@"..\..\imgs\bunker.png");
             rjButton4.Image = img4;
             rjButton5.ForeColor = Color.White;
-            rjButton5.BackColor = Color.Blue;
+            rjButton5.BackColor = Color.RoyalBlue;
             Image img5 = Image.FromFile(@"..\..\imgs\statistics.png");
             rjButton5.Image = img5;
         }
@@ -75,7 +75,7 @@ namespace BTL
         private void button6_MouseMove(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
         }
 
 
@@ -112,7 +112,7 @@ namespace BTL
         private void rjButton1_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
         }
@@ -136,7 +136,7 @@ namespace BTL
             btn.BackColor = Color.White;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucTrangChu());
         }
@@ -144,7 +144,7 @@ namespace BTL
         private void rjButton2_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             Image img = Image.FromFile(@"..\..\imgs\money-bag-hover.png");
             btn.Image = img;
         }
@@ -168,7 +168,7 @@ namespace BTL
             btn.BackColor = Color.White;
             Image img = Image.FromFile(@"..\..\imgs\money-bag-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucBanHang());
         }
@@ -187,7 +187,7 @@ namespace BTL
         private void rjButton3_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
         }
@@ -200,7 +200,7 @@ namespace BTL
             btn.BackColor = Color.White;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucDanhMuc());
         }
@@ -219,7 +219,7 @@ namespace BTL
         private void rjButton4_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             Image img = Image.FromFile(@"..\..\imgs\bunker-hover.png");
             btn.Image = img;
         }
@@ -232,7 +232,7 @@ namespace BTL
             btn.BackColor = Color.White;
             Image img = Image.FromFile(@"..\..\imgs\bunker-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucKhoHang());
         }
@@ -251,7 +251,7 @@ namespace BTL
         private void rjButton5_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             Image img = Image.FromFile(@"..\..\imgs\statistics-hover.png");
             btn.Image = img;
         }
@@ -264,7 +264,7 @@ namespace BTL
             btn.BackColor = Color.White;
             Image img = Image.FromFile(@"..\..\imgs\statistics-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucThongKe());
         }
@@ -278,7 +278,7 @@ namespace BTL
         private void button2_MouseMove(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.ForeColor = Color.Blue;
+            btn.ForeColor = Color.RoyalBlue;
         }
 
         private void button2_Click(object sender, EventArgs e)

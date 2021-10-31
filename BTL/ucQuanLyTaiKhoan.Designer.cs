@@ -29,7 +29,7 @@ namespace BTL
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,15 +42,7 @@ namespace BTL
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.metroButton7 = new MetroFramework.Controls.MetroButton();
-            this.metroButton8 = new MetroFramework.Controls.MetroButton();
-            this.metroButton6 = new MetroFramework.Controls.MetroButton();
-            this.metroButton5 = new MetroFramework.Controls.MetroButton();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +51,11 @@ namespace BTL
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.rjButton5 = new BTL.RJButton();
+            this.rjButton6 = new BTL.RJButton();
+            this.rjButton4 = new BTL.RJButton();
+            this.rjButton3 = new BTL.RJButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,6 +64,7 @@ namespace BTL
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -78,7 +76,6 @@ namespace BTL
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 53);
@@ -91,7 +88,7 @@ namespace BTL
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 253);
+            this.label6.Location = new System.Drawing.Point(3, 243);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 30);
             this.label6.TabIndex = 4;
@@ -100,7 +97,7 @@ namespace BTL
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 204);
+            this.label5.Location = new System.Drawing.Point(3, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 30);
             this.label5.TabIndex = 4;
@@ -109,7 +106,7 @@ namespace BTL
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 168);
+            this.label4.Location = new System.Drawing.Point(6, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 30);
             this.label4.TabIndex = 4;
@@ -118,7 +115,7 @@ namespace BTL
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 126);
+            this.label3.Location = new System.Drawing.Point(6, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 30);
             this.label3.TabIndex = 4;
@@ -127,7 +124,7 @@ namespace BTL
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 81);
+            this.label2.Location = new System.Drawing.Point(6, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 30);
             this.label2.TabIndex = 4;
@@ -136,7 +133,7 @@ namespace BTL
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 41);
+            this.label1.Location = new System.Drawing.Point(7, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 30);
             this.label1.TabIndex = 4;
@@ -149,7 +146,7 @@ namespace BTL
             "Nam",
             "Nữ",
             "Khác"});
-            this.comboBox2.Location = new System.Drawing.Point(120, 126);
+            this.comboBox2.Location = new System.Drawing.Point(120, 118);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(272, 33);
             this.comboBox2.TabIndex = 3;
@@ -157,48 +154,38 @@ namespace BTL
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 253);
+            this.comboBox1.Location = new System.Drawing.Point(120, 238);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(272, 33);
             this.comboBox1.TabIndex = 3;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(120, 204);
+            this.textBox4.Location = new System.Drawing.Point(120, 198);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(272, 30);
             this.textBox4.TabIndex = 2;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 165);
+            this.textBox3.Location = new System.Drawing.Point(120, 158);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(272, 30);
             this.textBox3.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 81);
+            this.textBox2.Location = new System.Drawing.Point(120, 78);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(272, 30);
             this.textBox2.TabIndex = 2;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(120, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(272, 30);
-            this.textBox1.TabIndex = 2;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.metroButton7);
-            this.groupBox2.Controls.Add(this.metroButton8);
-            this.groupBox2.Controls.Add(this.metroButton6);
-            this.groupBox2.Controls.Add(this.metroButton5);
-            this.groupBox2.Controls.Add(this.metroLabel3);
-            this.groupBox2.Controls.Add(this.metroLabel1);
-            this.groupBox2.Controls.Add(this.metroLabel6);
+            this.groupBox2.Controls.Add(this.rjButton5);
+            this.groupBox2.Controls.Add(this.rjButton6);
+            this.groupBox2.Controls.Add(this.rjButton4);
+            this.groupBox2.Controls.Add(this.rjButton3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(7, 299);
             this.groupBox2.Name = "groupBox2";
@@ -206,94 +193,6 @@ namespace BTL
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
-            // 
-            // metroButton7
-            // 
-            this.metroButton7.BackColor = System.Drawing.Color.SeaGreen;
-            this.metroButton7.DisplayFocus = true;
-            this.metroButton7.ForeColor = System.Drawing.Color.Snow;
-            this.metroButton7.Location = new System.Drawing.Point(272, 52);
-            this.metroButton7.Name = "metroButton7";
-            this.metroButton7.Size = new System.Drawing.Size(113, 40);
-            this.metroButton7.TabIndex = 0;
-            this.metroButton7.Text = "Xoá";
-            this.metroButton7.UseCustomBackColor = true;
-            this.metroButton7.UseCustomForeColor = true;
-            this.metroButton7.UseSelectable = true;
-            this.metroButton7.UseStyleColors = true;
-            // 
-            // metroButton8
-            // 
-            this.metroButton8.BackColor = System.Drawing.Color.SeaGreen;
-            this.metroButton8.DisplayFocus = true;
-            this.metroButton8.ForeColor = System.Drawing.Color.Snow;
-            this.metroButton8.Location = new System.Drawing.Point(139, 111);
-            this.metroButton8.Name = "metroButton8";
-            this.metroButton8.Size = new System.Drawing.Size(113, 40);
-            this.metroButton8.TabIndex = 0;
-            this.metroButton8.Text = "Làm mới";
-            this.metroButton8.UseCustomBackColor = true;
-            this.metroButton8.UseCustomForeColor = true;
-            this.metroButton8.UseSelectable = true;
-            this.metroButton8.UseStyleColors = true;
-            // 
-            // metroButton6
-            // 
-            this.metroButton6.BackColor = System.Drawing.Color.SeaGreen;
-            this.metroButton6.DisplayFocus = true;
-            this.metroButton6.ForeColor = System.Drawing.Color.Snow;
-            this.metroButton6.Location = new System.Drawing.Point(139, 52);
-            this.metroButton6.Name = "metroButton6";
-            this.metroButton6.Size = new System.Drawing.Size(113, 40);
-            this.metroButton6.TabIndex = 0;
-            this.metroButton6.Text = "Sửa";
-            this.metroButton6.UseCustomBackColor = true;
-            this.metroButton6.UseCustomForeColor = true;
-            this.metroButton6.UseSelectable = true;
-            this.metroButton6.UseStyleColors = true;
-            // 
-            // metroButton5
-            // 
-            this.metroButton5.BackColor = System.Drawing.Color.SeaGreen;
-            this.metroButton5.DisplayFocus = true;
-            this.metroButton5.ForeColor = System.Drawing.Color.Snow;
-            this.metroButton5.Location = new System.Drawing.Point(6, 52);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(113, 40);
-            this.metroButton5.TabIndex = 0;
-            this.metroButton5.Text = "Thêm";
-            this.metroButton5.UseCustomBackColor = true;
-            this.metroButton5.UseCustomForeColor = true;
-            this.metroButton5.UseSelectable = true;
-            this.metroButton5.UseStyleColors = true;
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(311, 52);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(60, 20);
-            this.metroLabel3.TabIndex = 0;
-            this.metroLabel3.Text = "Giới tính";
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.metroLabel1.Location = new System.Drawing.Point(311, -29);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(93, 20);
-            this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "Mã nhân viên";
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(311, 183);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(60, 20);
-            this.metroLabel6.TabIndex = 0;
-            this.metroLabel6.Text = "Chức vụ";
             // 
             // groupBox3
             // 
@@ -308,8 +207,8 @@ namespace BTL
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -369,6 +268,94 @@ namespace BTL
             this.Column6.Name = "Column6";
             this.Column6.Width = 125;
             // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(120, 38);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(272, 33);
+            this.comboBox3.TabIndex = 5;
+            // 
+            // rjButton5
+            // 
+            this.rjButton5.BackColor = System.Drawing.Color.BlueViolet;
+            this.rjButton5.BackgroundColor = System.Drawing.Color.BlueViolet;
+            this.rjButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton5.BorderRadius = 20;
+            this.rjButton5.BorderSize = 0;
+            this.rjButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton5.FlatAppearance.BorderSize = 0;
+            this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton5.ForeColor = System.Drawing.Color.White;
+            this.rjButton5.Location = new System.Drawing.Point(269, 49);
+            this.rjButton5.Name = "rjButton5";
+            this.rjButton5.Size = new System.Drawing.Size(116, 48);
+            this.rjButton5.TabIndex = 17;
+            this.rjButton5.Text = "Xoá";
+            this.rjButton5.TextColor = System.Drawing.Color.White;
+            this.rjButton5.UseVisualStyleBackColor = false;
+            // 
+            // rjButton6
+            // 
+            this.rjButton6.BackColor = System.Drawing.Color.SkyBlue;
+            this.rjButton6.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton6.BorderRadius = 20;
+            this.rjButton6.BorderSize = 0;
+            this.rjButton6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton6.FlatAppearance.BorderSize = 0;
+            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.rjButton6.Location = new System.Drawing.Point(147, 114);
+            this.rjButton6.Name = "rjButton6";
+            this.rjButton6.Size = new System.Drawing.Size(116, 48);
+            this.rjButton6.TabIndex = 16;
+            this.rjButton6.Text = "Huỷ bỏ";
+            this.rjButton6.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.rjButton6.UseVisualStyleBackColor = false;
+            // 
+            // rjButton4
+            // 
+            this.rjButton4.BackColor = System.Drawing.Color.SlateBlue;
+            this.rjButton4.BackgroundColor = System.Drawing.Color.SlateBlue;
+            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton4.BorderRadius = 20;
+            this.rjButton4.BorderSize = 0;
+            this.rjButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton4.FlatAppearance.BorderSize = 0;
+            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton4.ForeColor = System.Drawing.Color.White;
+            this.rjButton4.Location = new System.Drawing.Point(147, 49);
+            this.rjButton4.Name = "rjButton4";
+            this.rjButton4.Size = new System.Drawing.Size(116, 48);
+            this.rjButton4.TabIndex = 15;
+            this.rjButton4.Text = "Sửa";
+            this.rjButton4.TextColor = System.Drawing.Color.White;
+            this.rjButton4.UseVisualStyleBackColor = false;
+            // 
+            // rjButton3
+            // 
+            this.rjButton3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton3.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton3.BorderRadius = 20;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton3.ForeColor = System.Drawing.Color.White;
+            this.rjButton3.Location = new System.Drawing.Point(25, 49);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(116, 48);
+            this.rjButton3.TabIndex = 14;
+            this.rjButton3.Text = "Thêm";
+            this.rjButton3.TextColor = System.Drawing.Color.White;
+            this.rjButton3.UseVisualStyleBackColor = false;
+            // 
             // ucQuanLyTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,7 +367,6 @@ namespace BTL
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -401,15 +387,7 @@ namespace BTL
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private MetroFramework.Controls.MetroButton metroButton7;
-        private MetroFramework.Controls.MetroButton metroButton8;
-        private MetroFramework.Controls.MetroButton metroButton6;
-        private MetroFramework.Controls.MetroButton metroButton5;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -418,5 +396,10 @@ namespace BTL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private RJButton rjButton5;
+        private RJButton rjButton6;
+        private RJButton rjButton4;
+        private RJButton rjButton3;
     }
 }

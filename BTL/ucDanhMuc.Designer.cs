@@ -39,6 +39,7 @@ namespace BTL
             // btnManagerAcount
             // 
             this.btnManagerAcount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnManagerAcount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnManagerAcount.DisplayFocus = true;
             this.btnManagerAcount.ForeColor = System.Drawing.SystemColors.Window;
             this.btnManagerAcount.Location = new System.Drawing.Point(72, 31);
@@ -50,12 +51,12 @@ namespace BTL
             this.btnManagerAcount.UseCustomForeColor = true;
             this.btnManagerAcount.UseSelectable = true;
             this.btnManagerAcount.UseStyleColors = true;
-            this.btnManagerAcount.UseWaitCursor = true;
             this.btnManagerAcount.Click += new System.EventHandler(this.btnManagerAcount_Click);
             // 
             // metroButton2
             // 
             this.metroButton2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.metroButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroButton2.DisplayFocus = true;
             this.metroButton2.ForeColor = System.Drawing.SystemColors.Window;
             this.metroButton2.Location = new System.Drawing.Point(304, 31);
@@ -67,12 +68,12 @@ namespace BTL
             this.metroButton2.UseCustomForeColor = true;
             this.metroButton2.UseSelectable = true;
             this.metroButton2.UseStyleColors = true;
-            this.metroButton2.UseWaitCursor = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // metroButton3
             // 
             this.metroButton3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.metroButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroButton3.DisplayFocus = true;
             this.metroButton3.ForeColor = System.Drawing.SystemColors.Window;
             this.metroButton3.Location = new System.Drawing.Point(536, 31);
@@ -84,12 +85,12 @@ namespace BTL
             this.metroButton3.UseCustomForeColor = true;
             this.metroButton3.UseSelectable = true;
             this.metroButton3.UseStyleColors = true;
-            this.metroButton3.UseWaitCursor = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // metroButton4
             // 
             this.metroButton4.BackColor = System.Drawing.Color.DodgerBlue;
+            this.metroButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroButton4.DisplayFocus = true;
             this.metroButton4.ForeColor = System.Drawing.SystemColors.Window;
             this.metroButton4.Location = new System.Drawing.Point(768, 31);
@@ -101,7 +102,6 @@ namespace BTL
             this.metroButton4.UseCustomForeColor = true;
             this.metroButton4.UseSelectable = true;
             this.metroButton4.UseStyleColors = true;
-            this.metroButton4.UseWaitCursor = true;
             this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // panel1
