@@ -63,7 +63,6 @@ D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\MetroFramework.
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\MetroFramework.Fonts.dll
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\WinFormAnimation.dll
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\CircularProgressBar.xml
-D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.csproj.AssemblyReference.cache
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.DangNhap.resources
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.Properties.Resources.resources
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ThemMon.resources
@@ -82,3 +81,12 @@ D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.csproj.Core
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.csproj.CopyComplete
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.exe
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.pdb
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.NhapKho.resources
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.XuatKho.resources
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\RdlCompile.cache
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\RdlCompile.compiled
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\EntityFramework.dll
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\EntityFramework.xml
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.csproj.AssemblyReference.cache

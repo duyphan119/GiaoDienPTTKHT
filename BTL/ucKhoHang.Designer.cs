@@ -29,200 +29,241 @@ namespace BTL
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.nudPrice = new System.Windows.Forms.NumericUpDown();
+            this.cbUnit = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbSupplier = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.rjButton1 = new BTL.RJButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbName = new System.Windows.Forms.ComboBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.rjButton7 = new BTL.RJButton();
             this.rjButton2 = new BTL.RJButton();
-            this.rjButton3 = new BTL.RJButton();
-            this.rjButton4 = new BTL.RJButton();
+            this.rjButton8 = new BTL.RJButton();
             this.rjButton5 = new BTL.RJButton();
             this.rjButton6 = new BTL.RJButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.rjButton4 = new BTL.RJButton();
+            this.rjButton3 = new BTL.RJButton();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             this.SuspendLayout();
             // 
-            // listView1
+            // nudPrice
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(10, 65);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(644, 588);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.nudPrice.Enabled = false;
+            this.nudPrice.Location = new System.Drawing.Point(144, 269);
+            this.nudPrice.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nudPrice.Name = "nudPrice";
+            this.nudPrice.Size = new System.Drawing.Size(163, 24);
+            this.nudPrice.TabIndex = 53;
             // 
-            // columnHeader1
+            // cbUnit
             // 
-            this.columnHeader1.Text = "Mã NL";
+            this.cbUnit.Enabled = false;
+            this.cbUnit.FormattingEnabled = true;
+            this.cbUnit.Location = new System.Drawing.Point(144, 226);
+            this.cbUnit.Name = "cbUnit";
+            this.cbUnit.Size = new System.Drawing.Size(163, 26);
+            this.cbUnit.TabIndex = 52;
             // 
-            // columnHeader2
+            // checkBox1
             // 
-            this.columnHeader2.Text = "Tên NL";
-            this.columnHeader2.Width = 210;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.checkBox1.Location = new System.Drawing.Point(14, 71);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(178, 22);
+            this.checkBox1.TabIndex = 19;
+            this.checkBox1.Text = "Xem tất cả nguyên liệu";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // columnHeader3
+            // cbSupplier
             // 
-            this.columnHeader3.Text = "ĐVT";
+            this.cbSupplier.FormattingEnabled = true;
+            this.cbSupplier.Location = new System.Drawing.Point(144, 93);
+            this.cbSupplier.Name = "cbSupplier";
+            this.cbSupplier.Size = new System.Drawing.Size(163, 26);
+            this.cbSupplier.TabIndex = 49;
+            this.cbSupplier.SelectedIndexChanged += new System.EventHandler(this.cbSupplier_SelectedIndexChanged);
+            this.cbSupplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSupplier_KeyPress);
             // 
-            // columnHeader4
+            // label5
             // 
-            this.columnHeader4.Text = "Đơn giá";
-            this.columnHeader4.Width = 90;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 271);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 18);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Đơn giá";
             // 
-            // columnHeader5
+            // label4
             // 
-            this.columnHeader5.Text = "Mã NCC";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 18);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Đơn vị tính";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 18);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Tên nguyên liệu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 138);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 18);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Mã nguyên liệu";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 18);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Nhà cung cấp";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(176, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(291, 29);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Danh Sách Nguyên Liệu";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.cbName);
+            this.panel1.Controls.Add(this.nudQuantity);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.rjButton8);
             this.panel1.Controls.Add(this.rjButton5);
             this.panel1.Controls.Add(this.rjButton6);
             this.panel1.Controls.Add(this.rjButton4);
             this.panel1.Controls.Add(this.rjButton3);
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.nudPrice);
+            this.panel1.Controls.Add(this.cbUnit);
+            this.panel1.Controls.Add(this.cbSupplier);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.panel1.Location = new System.Drawing.Point(679, 207);
+            this.panel1.Location = new System.Drawing.Point(680, 99);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 446);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(327, 493);
+            this.panel1.TabIndex = 20;
             // 
-            // label1
+            // panel2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nhà cung cấp";
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Location = new System.Drawing.Point(14, 16);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(644, 49);
+            this.panel2.TabIndex = 15;
             // 
-            // label2
+            // dgv
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mã nguyên liệu";
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(14, 99);
+            this.dgv.Name = "dgv";
+            this.dgv.RowHeadersWidth = 51;
+            this.dgv.RowTemplate.Height = 24;
+            this.dgv.Size = new System.Drawing.Size(643, 554);
+            this.dgv.TabIndex = 21;
             // 
-            // label3
+            // nudQuantity
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Tên nguyên liệu";
+            this.nudQuantity.Enabled = false;
+            this.nudQuantity.Location = new System.Drawing.Point(144, 309);
+            this.nudQuantity.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nudQuantity.Name = "nudQuantity";
+            this.nudQuantity.Size = new System.Drawing.Size(163, 24);
+            this.nudQuantity.TabIndex = 60;
             // 
-            // label4
+            // label7
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 18);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Đơn vị tính";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 311);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 18);
+            this.label7.TabIndex = 59;
+            this.label7.Text = "Số lượng";
             // 
-            // label5
+            // cbName
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 203);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 18);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Đơn giá";
+            this.cbName.Enabled = false;
+            this.cbName.FormattingEnabled = true;
+            this.cbName.Location = new System.Drawing.Point(144, 182);
+            this.cbName.Name = "cbName";
+            this.cbName.Size = new System.Drawing.Size(163, 26);
+            this.cbName.TabIndex = 61;
+            this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
             // 
-            // comboBox1
+            // txtId
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 26);
-            this.comboBox1.TabIndex = 5;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(144, 135);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(161, 24);
+            this.txtId.TabIndex = 62;
             // 
-            // comboBox2
+            // rjButton7
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(142, 67);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(163, 26);
-            this.comboBox2.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(142, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 24);
-            this.textBox1.TabIndex = 7;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(142, 158);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(163, 26);
-            this.comboBox3.TabIndex = 8;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(142, 201);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(163, 24);
-            this.numericUpDown1.TabIndex = 9;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 20;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(679, 72);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(327, 48);
-            this.rjButton1.TabIndex = 2;
-            this.rjButton1.Text = "Lập phiếu nhập kho";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton7.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton7.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton7.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton7.BorderRadius = 20;
+            this.rjButton7.BorderSize = 0;
+            this.rjButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton7.FlatAppearance.BorderSize = 0;
+            this.rjButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton7.ForeColor = System.Drawing.Color.White;
+            this.rjButton7.Location = new System.Drawing.Point(680, 605);
+            this.rjButton7.Name = "rjButton7";
+            this.rjButton7.Size = new System.Drawing.Size(327, 48);
+            this.rjButton7.TabIndex = 18;
+            this.rjButton7.Text = "Xuất phiếu";
+            this.rjButton7.TextColor = System.Drawing.Color.White;
+            this.rjButton7.UseVisualStyleBackColor = false;
             // 
             // rjButton2
             // 
@@ -236,53 +277,34 @@ namespace BTL
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(679, 136);
+            this.rjButton2.Location = new System.Drawing.Point(680, 19);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(327, 48);
-            this.rjButton2.TabIndex = 3;
-            this.rjButton2.Text = "Lập phiếu xuất kho";
+            this.rjButton2.TabIndex = 17;
+            this.rjButton2.Text = "Xuất Kho";
             this.rjButton2.TextColor = System.Drawing.Color.White;
             this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click_1);
             // 
-            // rjButton3
+            // rjButton8
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 20;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(18, 273);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(137, 48);
-            this.rjButton3.TabIndex = 10;
-            this.rjButton3.Text = "Thêm";
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
-            // 
-            // rjButton4
-            // 
-            this.rjButton4.BackColor = System.Drawing.Color.SlateBlue;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.SlateBlue;
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 20;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(168, 273);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(137, 48);
-            this.rjButton4.TabIndex = 11;
-            this.rjButton4.Text = "Sửa";
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.rjButton8.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.rjButton8.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
+            this.rjButton8.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton8.BorderRadius = 20;
+            this.rjButton8.BorderSize = 0;
+            this.rjButton8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton8.FlatAppearance.BorderSize = 0;
+            this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton8.ForeColor = System.Drawing.Color.White;
+            this.rjButton8.Location = new System.Drawing.Point(20, 7);
+            this.rjButton8.Name = "rjButton8";
+            this.rjButton8.Size = new System.Drawing.Size(287, 48);
+            this.rjButton8.TabIndex = 58;
+            this.rjButton8.Text = "Thêm Nhà Cung Cấp";
+            this.rjButton8.TextColor = System.Drawing.Color.White;
+            this.rjButton8.UseVisualStyleBackColor = false;
             // 
             // rjButton5
             // 
@@ -296,10 +318,10 @@ namespace BTL
             this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton5.ForeColor = System.Drawing.Color.White;
-            this.rjButton5.Location = new System.Drawing.Point(168, 342);
+            this.rjButton5.Location = new System.Drawing.Point(170, 418);
             this.rjButton5.Name = "rjButton5";
             this.rjButton5.Size = new System.Drawing.Size(137, 48);
-            this.rjButton5.TabIndex = 13;
+            this.rjButton5.TabIndex = 57;
             this.rjButton5.Text = "Xoá";
             this.rjButton5.TextColor = System.Drawing.Color.White;
             this.rjButton5.UseVisualStyleBackColor = false;
@@ -316,78 +338,105 @@ namespace BTL
             this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rjButton6.Location = new System.Drawing.Point(18, 342);
+            this.rjButton6.Location = new System.Drawing.Point(20, 418);
             this.rjButton6.Name = "rjButton6";
             this.rjButton6.Size = new System.Drawing.Size(137, 48);
-            this.rjButton6.TabIndex = 12;
+            this.rjButton6.TabIndex = 56;
             this.rjButton6.Text = "Huỷ bỏ";
             this.rjButton6.TextColor = System.Drawing.Color.WhiteSmoke;
             this.rjButton6.UseVisualStyleBackColor = false;
+            this.rjButton6.Click += new System.EventHandler(this.rjButton6_Click);
             // 
-            // panel2
+            // rjButton4
             // 
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(10, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(643, 49);
-            this.panel2.TabIndex = 4;
+            this.rjButton4.BackColor = System.Drawing.Color.SlateBlue;
+            this.rjButton4.BackgroundColor = System.Drawing.Color.SlateBlue;
+            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton4.BorderRadius = 20;
+            this.rjButton4.BorderSize = 0;
+            this.rjButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton4.FlatAppearance.BorderSize = 0;
+            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton4.ForeColor = System.Drawing.Color.White;
+            this.rjButton4.Location = new System.Drawing.Point(170, 349);
+            this.rjButton4.Name = "rjButton4";
+            this.rjButton4.Size = new System.Drawing.Size(137, 48);
+            this.rjButton4.TabIndex = 55;
+            this.rjButton4.Text = "Sửa";
+            this.rjButton4.TextColor = System.Drawing.Color.White;
+            this.rjButton4.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // rjButton3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(176, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(291, 29);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Danh Sách Nguyên Liệu";
+            this.rjButton3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton3.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton3.BorderRadius = 20;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton3.ForeColor = System.Drawing.Color.White;
+            this.rjButton3.Location = new System.Drawing.Point(20, 349);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(137, 48);
+            this.rjButton3.TabIndex = 54;
+            this.rjButton3.Text = "Nhập Kho";
+            this.rjButton3.TextColor = System.Drawing.Color.White;
+            this.rjButton3.UseVisualStyleBackColor = false;
             // 
             // ucKhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.rjButton7);
             this.Controls.Add(this.rjButton2);
-            this.Controls.Add(this.rjButton1);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.panel2);
             this.Name = "ucKhoHang";
             this.Size = new System.Drawing.Size(1020, 669);
+            this.Load += new System.EventHandler(this.ucKhoHang_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.Panel panel1;
+        private RJButton rjButton7;
+        private RJButton rjButton8;
         private RJButton rjButton5;
         private RJButton rjButton6;
         private RJButton rjButton4;
         private RJButton rjButton3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private RJButton rjButton2;
+        private System.Windows.Forms.NumericUpDown nudPrice;
+        private System.Windows.Forms.ComboBox cbUnit;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cbSupplier;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private RJButton rjButton1;
-        private RJButton rjButton2;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.NumericUpDown nudQuantity;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbName;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

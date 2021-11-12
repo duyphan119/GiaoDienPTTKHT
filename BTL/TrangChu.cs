@@ -10,22 +10,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using System.Drawing.Drawing2D;
+using BTL.Model;
+
 namespace BTL
 {
     public partial class TrangChu : MetroForm
     {
         private bool[] btnClick = new bool[5] { true, false, false, false, false };
+        private NhanVien nv = new NhanVien();
         
-        public TrangChu()
+        public TrangChu(NhanVien x)
         {
             InitializeComponent();
+            nv = x;
         }
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
             panel2.Controls.Add(new ucTrangChu());
             ToolTip tip = new ToolTip();
-            tip.SetToolTip(button1,"Duy Phan đã đăng nhập");
+            lblInfoEmployee.Text = "Nhân viên: " + nv.ten;
+            if (nv.quyen == "user")
+            {
+                rjButton5.Location = new Point(rjButton3.Location.X, rjButton3.Location.Y);
+                rjButton3.Visible = false;
+            }
         }
 
         public void clearBtnClick()
@@ -38,7 +47,6 @@ namespace BTL
                     break;
                 }
             }
-            panel4.Visible = false;
             rjButton1.ForeColor = Color.White;
             rjButton1.BackColor = Color.RoyalBlue;
             Image img1 = Image.FromFile(@"..\..\imgs\home.png");
@@ -61,58 +69,20 @@ namespace BTL
             rjButton5.Image = img5;
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void button6_MouseLeave(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            btn.ForeColor = Color.White;
-        }
-
-        private void button6_MouseMove(object sender, MouseEventArgs e)
-        {
-            Button btn = sender as Button;
-            btn.ForeColor = Color.RoyalBlue;
-        }
-
-
-        private void panel4_MouseLeave(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            panel4.Visible = !panel4.Visible;
-        }
-
-        private void panel1_Click(object sender, EventArgs e)
-        {
-            panel4.Visible = false;
-        }
-
-        private void panel3_Click(object sender, EventArgs e)
-        {
-            panel4.Visible = false;
-        }
-
         private void panel2_Click(object sender, EventArgs e)
         {
-            panel4.Visible = false;
+           
         }
 
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
-            panel4.Visible = false;
+            
         }
 
         private void rjButton1_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
         }
@@ -133,10 +103,10 @@ namespace BTL
             clearBtnClick();
             btnClick[0] = true;
             Button btn = sender as Button;
-            btn.BackColor = Color.White;
+            btn.BackColor = Color.WhiteSmoke;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucTrangChu());
         }
@@ -144,7 +114,7 @@ namespace BTL
         private void rjButton2_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             Image img = Image.FromFile(@"..\..\imgs\money-bag-hover.png");
             btn.Image = img;
         }
@@ -165,12 +135,12 @@ namespace BTL
             clearBtnClick();
             btnClick[1] = true;
             Button btn = sender as Button;
-            btn.BackColor = Color.White;
+            btn.BackColor = Color.WhiteSmoke;
             Image img = Image.FromFile(@"..\..\imgs\money-bag-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             panel2.Controls.RemoveAt(0);
-            panel2.Controls.Add(new ucBanHang());
+            panel2.Controls.Add(new ucBanHang(nv));
         }
 
         private void rjButton3_MouseLeave(object sender, EventArgs e)
@@ -187,7 +157,7 @@ namespace BTL
         private void rjButton3_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
         }
@@ -197,10 +167,10 @@ namespace BTL
             clearBtnClick();
             btnClick[2] = true;
             Button btn = sender as Button;
-            btn.BackColor = Color.White;
+            btn.BackColor = Color.WhiteSmoke;
             Image img = Image.FromFile(@"..\..\imgs\home-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucDanhMuc());
         }
@@ -219,7 +189,7 @@ namespace BTL
         private void rjButton4_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             Image img = Image.FromFile(@"..\..\imgs\bunker-hover.png");
             btn.Image = img;
         }
@@ -229,10 +199,10 @@ namespace BTL
             clearBtnClick();
             btnClick[3] = true;
             Button btn = sender as Button;
-            btn.BackColor = Color.White;
+            btn.BackColor = Color.WhiteSmoke;
             Image img = Image.FromFile(@"..\..\imgs\bunker-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucKhoHang());
         }
@@ -251,7 +221,7 @@ namespace BTL
         private void rjButton5_MouseMove(object sender, MouseEventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             Image img = Image.FromFile(@"..\..\imgs\statistics-hover.png");
             btn.Image = img;
         }
@@ -261,10 +231,10 @@ namespace BTL
             clearBtnClick();
             btnClick[4] = true;
             Button btn = sender as Button;
-            btn.BackColor = Color.White;
+            btn.BackColor = Color.WhiteSmoke;
             Image img = Image.FromFile(@"..\..\imgs\statistics-hover.png");
             btn.Image = img;
-            btn.ForeColor = Color.RoyalBlue;
+            btn.ForeColor = Color.Blue;
             panel2.Controls.RemoveAt(0);
             panel2.Controls.Add(new ucThongKe());
         }
@@ -275,21 +245,14 @@ namespace BTL
             btn.ForeColor = Color.White;
         }
 
-        private void button2_MouseMove(object sender, MouseEventArgs e)
+        private void TrangChu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Button btn = sender as Button;
-            btn.ForeColor = Color.RoyalBlue;
+            Application.Exit();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panel4.Visible = !panel4.Visible;
-            button1.BackColor = Color.Gray;
+            panel3.Visible = !panel3.Visible;
         }
     }
 }
