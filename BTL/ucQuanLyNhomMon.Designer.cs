@@ -31,10 +31,8 @@ namespace BTL
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.listGroup = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSave = new BTL.RJButton();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnDelete = new BTL.RJButton();
             this.btnCancel = new BTL.RJButton();
@@ -43,9 +41,12 @@ namespace BTL
             this.cbId = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSave = new BTL.RJButton();
+            this.dgvGroup = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -66,33 +67,6 @@ namespace BTL
             this.label4.TabIndex = 23;
             this.label4.Text = "Danh Sách Nhóm Món";
             // 
-            // listGroup
-            // 
-            this.listGroup.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listGroup.FullRowSelect = true;
-            this.listGroup.GridLines = true;
-            this.listGroup.HideSelection = false;
-            this.listGroup.Location = new System.Drawing.Point(33, 63);
-            this.listGroup.Name = "listGroup";
-            this.listGroup.Size = new System.Drawing.Size(541, 465);
-            this.listGroup.TabIndex = 24;
-            this.listGroup.UseCompatibleStateImageBehavior = false;
-            this.listGroup.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Mã nhóm";
-            this.columnHeader1.Width = 200;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Tên nhóm";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 210;
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -105,18 +79,40 @@ namespace BTL
             this.panel1.Controls.Add(this.cbId);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.panel1.Location = new System.Drawing.Point(609, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(378, 465);
             this.panel1.TabIndex = 23;
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSave.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 20;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(28, 375);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(330, 50);
+            this.btnSave.TabIndex = 27;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtName.Location = new System.Drawing.Point(139, 111);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(219, 30);
+            this.txtName.Size = new System.Drawing.Size(219, 24);
             this.txtName.TabIndex = 26;
             // 
             // btnDelete
@@ -206,63 +202,72 @@ namespace BTL
             // cbId
             // 
             this.cbId.Enabled = false;
-            this.cbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbId.FormattingEnabled = true;
+            this.cbId.IntegralHeight = false;
             this.cbId.Location = new System.Drawing.Point(139, 53);
             this.cbId.Name = "cbId";
-            this.cbId.Size = new System.Drawing.Size(220, 33);
+            this.cbId.Size = new System.Drawing.Size(220, 26);
             this.cbId.TabIndex = 2;
-            this.cbId.Text = "Mã Nhóm";
             this.cbId.SelectedIndexChanged += new System.EventHandler(this.cbId_SelectedIndexChanged);
             this.cbId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbId_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label3.Location = new System.Drawing.Point(23, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 25);
+            this.label3.Size = new System.Drawing.Size(75, 18);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tên nhóm";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label2.Location = new System.Drawing.Point(23, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 25);
+            this.label2.Size = new System.Drawing.Size(71, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã nhóm";
             // 
-            // btnSave
+            // dgvGroup
             // 
-            this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSave.BackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 20;
-            this.btnSave.BorderSize = 0;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(28, 375);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(330, 50);
-            this.btnSave.TabIndex = 27;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.TextColor = System.Drawing.Color.White;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.dgvGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dgvGroup.Location = new System.Drawing.Point(33, 63);
+            this.dgvGroup.Name = "dgvGroup";
+            this.dgvGroup.RowHeadersWidth = 51;
+            this.dgvGroup.RowTemplate.Height = 24;
+            this.dgvGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvGroup.Size = new System.Drawing.Size(532, 465);
+            this.dgvGroup.TabIndex = 26;
+            this.dgvGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGroup_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã nhóm";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên nhóm";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // ucQuanLyNhomMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dgvGroup);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.listGroup);
             this.Controls.Add(this.panel1);
             this.Name = "ucQuanLyNhomMon";
             this.Size = new System.Drawing.Size(1020, 542);
@@ -271,6 +276,7 @@ namespace BTL
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,9 +285,6 @@ namespace BTL
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listGroup;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtName;
         private RJButton btnDelete;
@@ -292,5 +295,8 @@ namespace BTL
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private RJButton btnSave;
+        private System.Windows.Forms.DataGridView dgvGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

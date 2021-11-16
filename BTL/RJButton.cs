@@ -14,7 +14,7 @@ namespace BTL
     {
         //Fields
         private int borderSize = 0;
-        private int borderRadius = 20;
+        private int borderRadius = 5;
         private Color borderColor = Color.PaleVioletRed;
         //Properties
         [Category("RJ Code Advance")]

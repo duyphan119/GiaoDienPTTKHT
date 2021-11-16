@@ -21,7 +21,7 @@ namespace BTL
         private SqlDataReader reader;
         private List<NhomMon> ds_nhom = new List<NhomMon>();
         private string action;
-        private int rowIndex = -1;
+        private List<int> rowIndexs = new List<int>();
         public ucQuanLyNhomMon()
         {
             InitializeComponent();
@@ -42,29 +42,33 @@ namespace BTL
                 NhomMon nhom = new NhomMon(manhom, tennhom);
                 cbId.Items.Add(nhom.ma);
                 ds_nhom.Add(nhom);
-                listGroup.Items.Add(new ListViewItem(new string[]
+                dgvGroup.Rows.Add(new object[]
                 {
-                    manhom.ToString(), tennhom
-                }));
+                    nhom.ma, nhom.ten
+                });
             }
             cnn.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            reset();
             if (action == ADD)
             {
                 setEnabled(false);
-                reset();
                 action = "";
-            }
-            else if (action == EDIT)
-            {
-                MessageBox.Show("Đang sửa");
+                cbId.Text = "";
             }
             else
             {
-                cbId.Text = "" + (ds_nhom.Count + 1);
+                if (ds_nhom.Count > 0)
+                {
+                    cbId.Text = "" + (ds_nhom[ds_nhom.Count - 1].ma + 1);
+                }
+                else
+                {
+                    cbId.Text = "1";
+                }
                 setEnabled(true);
                 cbId.Enabled = false;
                 action = ADD;
@@ -72,7 +76,14 @@ namespace BTL
         }
         public void reset()
         {
-            cbId.Text = "Mã Nhóm";
+            if(action == ADD)
+            {
+                cbId.Text = "" + (ds_nhom[ds_nhom.Count-1].ma + 1);
+            }
+            else
+            {
+                cbId.Text = "";
+            }
             txtName.Text = "";
         }
         public void setEnabled(bool status)
@@ -84,15 +95,11 @@ namespace BTL
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            reset();
             if (action == EDIT)
             {
                 setEnabled(false);
-                reset();
                 action = "";
-            }
-            else if (action == ADD)
-            {
-                MessageBox.Show(this, "Đang thêm", "Chú ý", MessageBoxButtons.YesNoCancel);
             }
             else
             {
@@ -105,15 +112,16 @@ namespace BTL
         {
             try
             {
-                for (int i = listGroup.SelectedIndices.Count - 1; i >= 0; i--)
+                for (int i = dgvGroup.SelectedRows.Count - 1; i >= 0; i--)
                 {
-                    int index = listGroup.SelectedIndices[i];
+                    int index = dgvGroup.SelectedRows[i].Index;
                     cnn.Open();
                     scm = new SqlCommand("delete from nhommon where manhom = " + ds_nhom[index].ma, cnn);
                     scm.ExecuteNonQuery();
                     cnn.Close();
-                    listGroup.Items.RemoveAt(index);
+                    dgvGroup.Rows.RemoveAt(index);
                     ds_nhom.RemoveAt(index);
+                    cbId.Items.RemoveAt(index);
                 }
             }
             catch(SqlException er)
@@ -131,6 +139,7 @@ namespace BTL
             }
             catch(FormatException err)
             {
+                Console.WriteLine(err);
                 MessageBox.Show(this, "Mã Nhóm Không Hợp Lệ", "Chú ý", MessageBoxButtons.OK);
                 return null;
             }
@@ -157,10 +166,11 @@ namespace BTL
                                 nhom.ma + ", " +
                                 "N'" + nhom.ten + "')", cnn);
                         ds_nhom.Add(nhom);
-                        listGroup.Items.Add(new ListViewItem(new string[]
+                        dgvGroup.Rows.Add(new object[]
                         {
-                    nhom.ma.ToString(), nhom.ten
-                        }));
+                            nhom.ma, nhom.ten
+                        });
+                        cbId.Items.Add(nhom.ma);
                     }
                     else if (action == EDIT)
                     {
@@ -170,14 +180,12 @@ namespace BTL
                             "' where " +
                             "manhom = " + nhom.ma, cnn);
                         int index = ds_nhom.FindIndex(item => item.ma == nhom.ma);
-                        listGroup.Items[index].SubItems[1].Text = nhom.ten;
+                        dgvGroup.Rows[index].Cells[1].Value = nhom.ten;
                         ds_nhom[index] = nhom;
                     }
                     scm.ExecuteNonQuery();
                     cnn.Close();
-                    setEnabled(false);
                     reset();
-                    action = "";
                 }
                 else
                 {
@@ -212,6 +220,18 @@ namespace BTL
         private void cbId_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void dgvGroup_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(action == EDIT)
+            {
+                if(e.RowIndex>-1 && e.RowIndex < dgvGroup.RowCount - 1)
+                {
+                    cbId.SelectedIndex = e.RowIndex;
+                    txtName.Text = ds_nhom[e.RowIndex].ten;
+                }
+            }
         }
     }
 }

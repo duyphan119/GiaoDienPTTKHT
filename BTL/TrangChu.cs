@@ -204,7 +204,7 @@ namespace BTL
             btn.Image = img;
             btn.ForeColor = Color.Blue;
             panel2.Controls.RemoveAt(0);
-            panel2.Controls.Add(new ucKhoHang());
+            panel2.Controls.Add(new ucKhoHang(nv));
         }
 
         private void rjButton5_MouseLeave(object sender, EventArgs e)

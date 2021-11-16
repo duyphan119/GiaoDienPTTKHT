@@ -65,19 +65,23 @@ namespace BTL
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            reset();
             if(action == ADD)
             {
                 setEnabled(false);
-                reset();
                 action = "";
-            }
-            else if(action == EDIT)
-            {
-                MessageBox.Show("Đang sửa");
+                cbId.Text = "";
             }
             else
             {
-                cbId.Text = "" + (ds_nv.Count + 1);
+                if (ds_nv.Count > 0)
+                {
+                    cbId.Text = "" + (ds_nv[ds_nv.Count - 1].ma + 1);
+                }
+                else
+                {
+                    cbId.Text = "1";
+                }
                 setEnabled(true);
                 cbId.Enabled = false;
                 action = ADD;
@@ -104,15 +108,11 @@ namespace BTL
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            reset();
             if (action == EDIT)
             {
                 setEnabled(false);
-                reset();
                 action = "";
-            }
-            else if (action == ADD)
-            {
-               MessageBox.Show(this,"Đang thêm","Chú ý",MessageBoxButtons.YesNoCancel);
             }
             else
             {
@@ -123,13 +123,13 @@ namespace BTL
 
         public void reset()
         {
-            cbId.Text = "Mã Nhân Viên";
-            cbGender.Text = "Giới Tính";
-            cbPermission.Text = "Quyền";
-            cbPosition.Text = "Chức Vụ";
             txtName.Text = "";
             txtPhone.Text = "";
             txtPassword.Text = "";
+            if(action == ADD)
+            {
+                cbId.Text = "" + (ds_nv[ds_nv.Count - 1].ma + 1);
+            }
         }
 
         private void dgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -152,6 +152,7 @@ namespace BTL
                     cnn.Close();
                     ds_nv.RemoveAt(rowIndex);
                     dgvEmployee.Rows.RemoveAt(rowIndex);
+                    cbId.Items.RemoveAt(rowIndex);
                     rowIndex = -1;
                 }
                 catch (SqlException err)
@@ -278,6 +279,7 @@ namespace BTL
                         nv.matkhau
                     });
                         ds_nv.Add(nv);
+                        cbId.Items.Add(nv.ma);
                     }
                     else if (action == EDIT)
                     {
@@ -303,9 +305,7 @@ namespace BTL
                     }
                     scm.ExecuteNonQuery();
                     cnn.Close();
-                    setEnabled(false);
                     reset();
-                    action = "";
                 }
                 else
                 {
@@ -317,6 +317,7 @@ namespace BTL
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar)) e.Handled = true;
+            if (txtPhone.Text.Length > 10) e.Handled = true;
         }
 
         private void cbPermission_KeyPress(object sender, KeyPressEventArgs e)
@@ -337,6 +338,11 @@ namespace BTL
         private void cbId_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

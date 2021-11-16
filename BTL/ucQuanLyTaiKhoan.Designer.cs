@@ -48,6 +48,11 @@ namespace BTL
             this.cbPosition = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new BTL.RJButton();
+            this.btnDelete = new BTL.RJButton();
+            this.btnCancel = new BTL.RJButton();
+            this.btnEdit = new BTL.RJButton();
+            this.btnAdd = new BTL.RJButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,11 +63,6 @@ namespace BTL
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new BTL.RJButton();
-            this.btnDelete = new BTL.RJButton();
-            this.btnCancel = new BTL.RJButton();
-            this.btnEdit = new BTL.RJButton();
-            this.btnAdd = new BTL.RJButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,6 +95,7 @@ namespace BTL
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nhân viên";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtPassword
             // 
@@ -169,7 +170,6 @@ namespace BTL
             this.cbPermission.Name = "cbPermission";
             this.cbPermission.Size = new System.Drawing.Size(154, 26);
             this.cbPermission.TabIndex = 6;
-            this.cbPermission.Text = "Quyền";
             this.cbPermission.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbPermission_KeyPress);
             // 
             // cbId
@@ -180,7 +180,6 @@ namespace BTL
             this.cbId.Name = "cbId";
             this.cbId.Size = new System.Drawing.Size(224, 26);
             this.cbId.TabIndex = 5;
-            this.cbId.Text = "Mã Nhân Viên";
             this.cbId.SelectedIndexChanged += new System.EventHandler(this.cbId_SelectedIndexChanged);
             this.cbId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbId_KeyPress);
             // 
@@ -232,7 +231,6 @@ namespace BTL
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(224, 26);
             this.cbGender.TabIndex = 3;
-            this.cbGender.Text = "Giới Tính";
             this.cbGender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbGender_KeyPress);
             // 
             // cbPosition
@@ -255,7 +253,6 @@ namespace BTL
             this.cbPosition.Name = "cbPosition";
             this.cbPosition.Size = new System.Drawing.Size(154, 26);
             this.cbPosition.TabIndex = 3;
-            this.cbPosition.Text = "Chức Vụ";
             this.cbPosition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbPosition_KeyPress);
             // 
             // txtName
@@ -280,6 +277,112 @@ namespace BTL
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSave.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 20;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Location = new System.Drawing.Point(118, 83);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(204, 48);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BackgroundColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BorderRadius = 20;
+            this.btnDelete.BorderSize = 0;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(223, 29);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(99, 48);
+            this.btnDelete.TabIndex = 17;
+            this.btnDelete.Text = "Xoá";
+            this.btnDelete.TextColor = System.Drawing.Color.White;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Thistle;
+            this.btnCancel.BackgroundColor = System.Drawing.Color.Thistle;
+            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.BorderRadius = 20;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.Location = new System.Drawing.Point(13, 83);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(99, 48);
+            this.btnCancel.TabIndex = 16;
+            this.btnCancel.Text = "Huỷ bỏ";
+            this.btnCancel.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnEdit.BackgroundColor = System.Drawing.Color.LightSeaGreen;
+            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEdit.BorderRadius = 20;
+            this.btnEdit.BorderSize = 0;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(118, 29);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(99, 48);
+            this.btnEdit.TabIndex = 15;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.TextColor = System.Drawing.Color.White;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAdd.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.btnAdd.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAdd.BorderRadius = 20;
+            this.btnAdd.BorderSize = 0;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(13, 29);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(99, 48);
+            this.btnAdd.TabIndex = 14;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextColor = System.Drawing.Color.White;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // groupBox3
             // 
@@ -389,112 +492,6 @@ namespace BTL
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             this.Column8.Width = 98;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSave.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 20;
-            this.btnSave.BorderSize = 0;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.Location = new System.Drawing.Point(118, 83);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(204, 48);
-            this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.TextColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BackgroundColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BorderRadius = 20;
-            this.btnDelete.BorderSize = 0;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(223, 29);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 48);
-            this.btnDelete.TabIndex = 17;
-            this.btnDelete.Text = "Xoá";
-            this.btnDelete.TextColor = System.Drawing.Color.White;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Thistle;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.Thistle;
-            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancel.BorderRadius = 20;
-            this.btnCancel.BorderSize = 0;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancel.Location = new System.Drawing.Point(13, 83);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(99, 48);
-            this.btnCancel.TabIndex = 16;
-            this.btnCancel.Text = "Huỷ bỏ";
-            this.btnCancel.TextColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnEdit.BackgroundColor = System.Drawing.Color.LightSeaGreen;
-            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEdit.BorderRadius = 20;
-            this.btnEdit.BorderSize = 0;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(118, 29);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(99, 48);
-            this.btnEdit.TabIndex = 15;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.TextColor = System.Drawing.Color.White;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAdd.BackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.btnAdd.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAdd.BorderRadius = 20;
-            this.btnAdd.BorderSize = 0;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(13, 29);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(99, 48);
-            this.btnAdd.TabIndex = 14;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.TextColor = System.Drawing.Color.White;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // ucQuanLyTaiKhoan
             // 
