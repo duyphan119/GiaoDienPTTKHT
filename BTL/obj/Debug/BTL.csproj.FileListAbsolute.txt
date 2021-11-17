@@ -152,3 +152,5 @@ D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucKhoHang.r
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucNhaCungCap.resources
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucNhapKho.resources
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucXuatKho.resources
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.DSPhieu.resources
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucNguyenLieu.resources

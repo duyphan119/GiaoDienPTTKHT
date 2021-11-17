@@ -228,7 +228,8 @@ create proc sp_DanhSachMonAnCuaBan
 --Thanh Toán
 create proc sp_ThanhToan
 	(
-		@sohd int
+		@sohd int,
+		@giora datetime
 	)
 	as
 		begin
@@ -237,7 +238,7 @@ create proc sp_ThanhToan
 			--Gán giá trị
 			select @soban = soban from hoadon where sohd = @sohd;
 			--Cập nhật thời gian thanh toán của hoá đơn
-			update hoadon set giora = GETDATE() where sohd = @sohd;
+			update hoadon set giora = @giora where sohd = @sohd;
 			--Cập nhật trạng thái của bàn
 			update ban set trangthai = 1 where soban = @soban;
 		end
@@ -399,8 +400,20 @@ as
 			end
 		--Tồn kho là số lượng đã nhập - số lượng đã xuất
 		set @tonkho = @soluongtrongphieunhap - @soluongtrongphieuxuat;
+		if(@tonkho is null) 
+			begin
+				set @tonkho = 0
+			end
 		select @tonkho
 	end
 	drop proc sp_TonKhoCuaNguyenLieu
-	execute sp_TonKhoCuaNguyenLieu 3
+	execute sp_TonKhoCuaNguyenLieu 9
 
+	select ct.sopn, nl.manl, nl.tennl, nl.dvt, ct.soluong, nl.giatien
+	from chitietphieunhap ct, nguyenlieu nl
+	where ct.sopn = 1 and nl.manl = ct.manl
+
+	select * from chitietphieuxuat where sopn = 3
+	delete  from ban where soban = 19
+	
+	select * from nguyenlieu;

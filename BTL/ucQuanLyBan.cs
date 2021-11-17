@@ -45,10 +45,10 @@ namespace BTL
                             ban.soban + ", " +
                             "N'" + ban.trangthai + "')", cnn);
                     ds_ban.Add(ban);
-                    listTable.Items.Add(new ListViewItem(new string[]
+                    dataGridView1.Rows.Add(new object[]
                     {
-                            ban.soban.ToString(), (ban.trangthai==true)?"Trống":"Có Khách"
-                    }));
+                        ban.soban.ToString(), (ban.trangthai==true)?"Trống":"Có Khách"
+                    });
                     cbId.Items.Add(ban.soban);
                 }
                 else if (action == EDIT)
@@ -59,7 +59,7 @@ namespace BTL
                         " where " +
                         "soban = " + ban.soban, cnn);
                     int index = ds_ban.FindIndex(item => item.soban == ban.soban);
-                    listTable.Items[index].SubItems[1].Text = (ban.trangthai == true) ? "Trống" : "Có Khách";
+                    dataGridView1.Rows[index].Cells[1].Value = (ban.trangthai == true) ? "Trống" : "Có Khách";
                     ds_ban[index] = ban;
                 }
                 scm.ExecuteNonQuery();
@@ -151,7 +151,7 @@ namespace BTL
             cnn.Open();
             scm = new SqlCommand("select * from ban", cnn);
             reader = scm.ExecuteReader();
-            listTable.Items.Clear();
+            dataGridView1.Rows.Clear();
             ds_ban.Clear();
             cbId.Items.Clear();
             while (reader.Read())
@@ -161,10 +161,10 @@ namespace BTL
                 Ban ban = new Ban(soban, trangthai);
                 cbId.Items.Add(ban.soban);
                 ds_ban.Add(ban);
-                listTable.Items.Add(new ListViewItem(new string[]
+                dataGridView1.Rows.Add(new object[]
                 {
                     ban.soban.ToString(), (ban.trangthai==true)?"Trống":"Có Khách"
-                }));
+                });
             }
             cnn.Close();
         }
@@ -196,7 +196,7 @@ namespace BTL
                 scm = new SqlCommand("select * from ban", cnn);
             }
             reader = scm.ExecuteReader();
-            listTable.Items.Clear();
+            dataGridView1.Rows.Clear();
             cbId.Items.Clear();
             ds_ban.Clear();
             while (reader.Read())
@@ -206,10 +206,10 @@ namespace BTL
                 Ban ban = new Ban(soban, trangthai);
                 cbId.Items.Add(ban.soban);
                 ds_ban.Add(ban);
-                listTable.Items.Add(new ListViewItem(new string[]
+                dataGridView1.Rows.Add(new object[]
                 {
                     ban.soban.ToString(), (ban.trangthai==true)?"Trống":"Có Khách"
-                }));
+                });
             }
             cnn.Close();
         }
@@ -218,14 +218,14 @@ namespace BTL
         {
             try
             {
-                for (int i = listTable.SelectedIndices.Count - 1; i >= 0; i--)
+                for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
                 {
-                    int index = listTable.SelectedIndices[i];
+                    int index = dataGridView1.SelectedRows[i].Index;
                     cnn.Open();
-                    scm = new SqlCommand("delete from ban where soban = " + ds_ban[index].soban, cnn);
+                    scm = new SqlCommand($"delete from ban where soban = {ds_ban[index].soban}", cnn);
                     scm.ExecuteNonQuery();
                     cnn.Close();
-                    listTable.Items.RemoveAt(index);
+                    dataGridView1.Rows.RemoveAt(index);
                     ds_ban.RemoveAt(index);
                     cbId.Items.RemoveAt(index);
                 }

@@ -44,8 +44,10 @@ namespace BTL
                 }
                 else
                 {
+                    phieu.sophieu = 1;
                     txtId.Text = "1";
                 }
+                phieu.ngay = DateTime.Now;
             }
             else
             {
@@ -146,6 +148,34 @@ namespace BTL
             cnn.Close();
         }
 
+        internal void moPhieu(Phieu p)
+        {
+            dgvProduct.Rows.Clear();
+            phieu = p;
+            setEnabled(false);
+            cbSupplier.Enabled = false;
+            groupDetail.Enabled = true;
+            txtId.Text = phieu.sophieu.ToString();
+            btnExport.Enabled = true;
+            cnn.Open();
+            scm = new SqlCommand($@"select manl, soluong from chitietphieuxuat
+                where sopx = {phieu.sophieu}", cnn);
+            reader = scm.ExecuteReader();
+            while (reader.Read())
+            {
+                NguyenLieu nl = ds_nl.Find(item => item.ma == reader.GetInt32(0));
+                int soluong = reader.GetInt32(1);
+                ChiTietPhieu ct = new ChiTietPhieu(nl, soluong);
+                phieu.list.Add(ct);
+                dgvProduct.Rows.Add(new object[]
+                {
+                    ct.nl.ma, ct.nl.ten, ct.nl.dvt, ct.soluong, ct.nl.gia
+                });
+            }
+            dgvProduct.ClearSelection();
+            cnn.Close();
+        }
+
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
@@ -205,21 +235,46 @@ namespace BTL
             int soluong = Convert.ToInt32(nudQuantity.Value);
             if (action == ADD && soluong > 0)
             {
+                if (phieu.list.Count == 0)
+                {
+                    cnn.Open();
+                    scm = new SqlCommand($@"insert into phieuxuat(sopx, ngayxuat, manv)
+                         values ({phieu.sophieu},getdate(),{nv.ma})
+                        ", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
+                    ds_ph.Add(phieu);
+                }
                 int index = ds_nl.FindIndex(item => "" + item.ma == cbId.SelectedItem.ToString());
                 int index2 = phieu.list.FindIndex(item => "" + item.nl.ma == cbId.SelectedItem.ToString());
-                if(index2 != -1)
+                if(index2 != -1)//Cập nhật số lượng
                 {
                     phieu.list[index2].soluong += soluong;
+                    cnn.Open();
+                    scm = new SqlCommand($@"update chitietphieuxuat set 
+                        soluong = {phieu.list[index2].soluong}
+                         where sopx = {phieu.sophieu} and manl = {phieu.list[index2].nl.ma})
+                        ", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
                     dgvProduct.Rows[index2].Cells[3].Value = phieu.list[index2].soluong;
                 }
-                else
+                else//Thêm mới chi tiết phiếu xuất
                 {
+                    cnn.Open();
+                    scm = new SqlCommand($@"insert into chitietphieuxuat(sopx, manl, soluong)
+                         values ({phieu.sophieu},{nl.ma},{soluong})
+                        ", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
                     phieu.list.Add(new ChiTietPhieu(nl, soluong));
                     dgvProduct.Rows.Add(new object[]
                     {
-                     nl.ma, nl.ten, nl.dvt, soluong, nl.gia.ToString("#,##")
+                        nl.ma, nl.ten, nl.dvt, soluong, nl.gia.ToString("#,##")
                     });
                 }
+                phieu.ngay = DateTime.Now;
+                ds_ph[ds_ph.Count - 1] = phieu;
                 ds_tonkho[index] -= soluong;
                 btnSave.Enabled = false;
                 dgvProduct.ClearSelection();
@@ -242,23 +297,9 @@ namespace BTL
             cbSupplier.Enabled = groupDetail.Enabled = !groupDetail.Enabled;
             cbSupplier.Text = "";
             setEnabled(!cbSupplier.Enabled);
-            cnn.Open();
-            scm = new SqlCommand($@"insert into phieuxuat(sopx, ngayxuat, manv)
-                 values ({phieu.sophieu},getdate(),{nv.ma})
-                ", cnn);
-            scm.ExecuteNonQuery();
-            cnn.Close();
-            phieu.list.ForEach(item =>
-            {
-                cnn.Open();
-                scm = new SqlCommand($@"insert into chitietphieuxuat(sopx, manl, soluong)
-                         values ({phieu.sophieu},{item.nl.ma},{item.soluong})
-                        ", cnn);
-                scm.ExecuteNonQuery();
-                cnn.Close();
-            });
+            
             dgvProduct.Rows.Clear();
-            phieu.ngay = DateTime.Now;
+            
             new Report(null).phieuXuat(phieu);
             ds_ph.Add(phieu);
             action = "";
@@ -267,7 +308,7 @@ namespace BTL
 
         private void cbId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = ds_nl.FindIndex(item => item.ma == ds_nl[cbId.SelectedIndex].ma);
+            int index = ds_nl.FindIndex(item => item.ma == Convert.ToInt32(cbId.SelectedItem));
             if (action == ADD && index != -1)
             {
                 setData(ds_nl[index].ma, ds_tonkho[index], index);
@@ -281,15 +322,34 @@ namespace BTL
             {
                 int index = dgvProduct.SelectedRows[i].Index;
                 int index2 = ds_nl.FindIndex(item => item.ma == Convert.ToInt32(dgvProduct.Rows[index].Cells[0].Value));
+                cnn.Open();
+                scm = new SqlCommand($@"delete from chitietphieuxuat where sopx = {phieu.sophieu}
+                      and manl = {Convert.ToInt32(dgvProduct.Rows[index].Cells[0].Value)}", cnn);
+                scm.ExecuteNonQuery();
+                cnn.Close();
                 ds_tonkho[index2] += Convert.ToInt32(dgvProduct.Rows[index].Cells[3].Value);
                 dgvProduct.Rows.RemoveAt(index);
                 phieu.list.RemoveAt(index);
+                if (phieu.list.Count == 0)
+                {
+                    cnn.Open();
+                    scm = new SqlCommand($@"delete from phieuxuat where 
+                      sopn = {phieu.sophieu}", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
+                    ds_ph.RemoveAt(ds_ph.Count - 1);
+                }
             }
         }
 
         private void cbUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            new DSPhieu(null,this).phieu(false);
         }
     }
 }

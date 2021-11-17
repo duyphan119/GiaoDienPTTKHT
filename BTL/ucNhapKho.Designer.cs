@@ -57,6 +57,7 @@ namespace BTL
             this.btnSave = new BTL.RJButton();
             this.btnCancel = new BTL.RJButton();
             this.btnDelete = new BTL.RJButton();
+            this.btnOpen = new BTL.RJButton();
             this.btnExport = new BTL.RJButton();
             this.btnCreate = new BTL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
@@ -140,6 +141,7 @@ namespace BTL
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(163, 24);
             this.txtName.TabIndex = 112;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // cbId
             // 
@@ -226,7 +228,7 @@ namespace BTL
             // 
             // nudQuantity
             // 
-            this.nudQuantity.Enabled = false;
+            this.nudQuantity.AutoSize = true;
             this.nudQuantity.Location = new System.Drawing.Point(753, 30);
             this.nudQuantity.Maximum = new decimal(new int[] {
             1000000,
@@ -239,6 +241,7 @@ namespace BTL
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnOpen);
             this.groupBox1.Controls.Add(this.btnExport);
             this.groupBox1.Controls.Add(this.btnCreate);
             this.groupBox1.Controls.Add(this.label1);
@@ -411,6 +414,26 @@ namespace BTL
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnOpen
+            // 
+            this.btnOpen.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnOpen.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnOpen.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnOpen.BorderRadius = 2;
+            this.btnOpen.BorderSize = 0;
+            this.btnOpen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpen.FlatAppearance.BorderSize = 0;
+            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpen.ForeColor = System.Drawing.Color.White;
+            this.btnOpen.Location = new System.Drawing.Point(637, 32);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(150, 40);
+            this.btnOpen.TabIndex = 107;
+            this.btnOpen.Text = "Chọn Phiếu";
+            this.btnOpen.TextColor = System.Drawing.Color.White;
+            this.btnOpen.UseVisualStyleBackColor = false;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
             // btnExport
             // 
             this.btnExport.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -418,6 +441,7 @@ namespace BTL
             this.btnExport.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnExport.BorderRadius = 2;
             this.btnExport.BorderSize = 0;
+            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExport.Enabled = false;
             this.btnExport.FlatAppearance.BorderSize = 0;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -438,14 +462,15 @@ namespace BTL
             this.btnCreate.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnCreate.BorderRadius = 2;
             this.btnCreate.BorderSize = 0;
+            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.FlatAppearance.BorderSize = 0;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(608, 32);
+            this.btnCreate.Location = new System.Drawing.Point(481, 32);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(150, 40);
             this.btnCreate.TabIndex = 105;
-            this.btnCreate.Text = "Tạo Phiếu Nhập";
+            this.btnCreate.Text = "Tạo Phiếu";
             this.btnCreate.TextColor = System.Drawing.Color.White;
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -500,5 +525,6 @@ namespace BTL
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrice;
+        private RJButton btnOpen;
     }
 }

@@ -94,6 +94,35 @@ namespace BTL
             }
             cnn.Close();
         }
+
+        public void moPhieu(Phieu p)
+        {
+            dgvProduct.Rows.Clear();
+            phieu = p;
+            groupDetail.Enabled = true;
+            cbSupplier.Enabled = false;
+            btnExport.Enabled = true;
+            txtId.Text = "" + phieu.sophieu;
+            cnn.Open();
+            scm = new SqlCommand($@"select manl, soluong from chitietphieunhap 
+                where sopn = {phieu.sophieu}", cnn);
+            reader = scm.ExecuteReader();
+            while (reader.Read())
+            {
+                NguyenLieu nl = ds_nl.Find(item => item.ma == reader.GetInt32(0));
+                int soluong = reader.GetInt32(1);
+                ChiTietPhieu ct = new ChiTietPhieu(nl, soluong);
+                phieu.list.Add(ct);
+                dgvProduct.Rows.Add(new object[]
+                {
+                    ct.nl.ma, ct.nl.ten, ct.nl.dvt, ct.soluong, ct.nl.gia
+                });
+            }
+            dgvProduct.ClearSelection();
+            cbSupplier.Text = phieu.list[0].nl.ncc.ten;
+            cnn.Close();
+        }
+
         //Đầu tiên: Chọn nhà cung cấp 
         private void cbSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -126,16 +155,18 @@ namespace BTL
                     groupDetail.Enabled = true;
                     cbSupplier.Enabled = false;
                     btnExport.Enabled = true;
-                    phieu.sophieu = (ds_ph[ds_ph.Count - 1].sophieu + 1);
                     if (ds_ph.Count > 0)
                     {
+                        phieu.sophieu = (ds_ph[ds_ph.Count - 1].sophieu + 1);
                         txtId.Text = phieu.sophieu.ToString();
                     }
                     else
                     {
+                        phieu.sophieu = 1;
                         txtId.Text = "1";
                     }
-                    phieu.list = new List<ChiTietPhieu>();
+                    phieu.ngay = DateTime.Now;
+                    
                 }
                 else//Huỷ phiếu
                 {
@@ -217,9 +248,24 @@ namespace BTL
             {
                 int index = dgvProduct.SelectedRows[i].Index;
                 int index2 = ds_nl.FindIndex(item => item.ma ==Convert.ToInt32(dgvProduct.Rows[index].Cells[0].Value));
+                cnn.Open();
+                scm = new SqlCommand($@"delete from chitietphieunhap where sopn = {phieu.sophieu}
+                      and manl = {Convert.ToInt32(dgvProduct.Rows[index].Cells[0].Value)}", cnn);
+                scm.ExecuteNonQuery();
+                cnn.Close();
+             
                 ds_tonkho[index2] -= Convert.ToInt32(dgvProduct.Rows[index].Cells[3].Value);
                 dgvProduct.Rows.RemoveAt(index);
                 phieu.list.RemoveAt(index);
+                if(phieu.list.Count == 0)
+                {
+                    cnn.Open();
+                    scm = new SqlCommand($@"delete from phieunhap where 
+                      sopn = {phieu.sophieu}", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
+                    ds_ph.RemoveAt(ds_ph.Count - 1);
+                }
             }
         }
 
@@ -270,12 +316,14 @@ namespace BTL
                 //cnn.Open();
                 if (action == ADD)
                 {
-                    /*
+                    //Thêm mới nguyên liệu
+                    cnn.Open();
                     scm = new SqlCommand(
                         $@"insert into nguyenlieu(manl, tennl, dvt, giatien, mancc)
                             values ({nl.ma},N'{nl.ten}',N'{nl.dvt}',{nl.gia},{nl.ncc.ma})
-                            ", cnn);*/
-                    phieu.list.Add(new ChiTietPhieu(nl, soluong));
+                            ", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
                     ds_nl.Add(nl);
                     ds_tonkho.Add(soluong);
                     dgvProduct.Rows.Add(new object[]
@@ -287,15 +335,38 @@ namespace BTL
                 else if (action == EDIT)
                 {
                     int index = ds_nl.FindIndex(item => ""+item.ma == cbId.SelectedItem.ToString());
-                    phieu.list.Add(new ChiTietPhieu(nl, soluong));
                     ds_tonkho[index] += soluong;
                     dgvProduct.Rows.Add(new object[]
                     {
-                            nl.ma, nl.ten, nl.dvt, soluong, nl.gia.ToString("#,##")
+                        nl.ma, nl.ten, nl.dvt, soluong, nl.gia.ToString("#,##")
                     });
                 }
+                phieu.list.Add(new ChiTietPhieu(nl, soluong));
+                //Thêm phiếu nhập
+                if (phieu.list.Count == 1)
+                {
+                    cnn.Open();
+                    scm = new SqlCommand($@"insert into phieunhap(sopn, ngaynhap, manv)
+                         values ({phieu.sophieu},getdate(),{nv.ma})
+                        ", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
+                    ds_ph.Add(phieu);
+                }
+                //Thêm mới chi tiết phiếu nhập
+                cnn.Open();
+                scm = new SqlCommand($@"insert into chitietphieunhap(sopn, manl, soluong)
+                         values ({phieu.sophieu},{nl.ma},{soluong})
+                        ", cnn);
+                scm.ExecuteNonQuery();
+                cnn.Close();
+                ds_ph[ds_ph.Count - 1] = phieu;
                 dgvProduct.ClearSelection();
                 reset();
+            }
+            else
+            {
+                MessageBox.Show(this, "Dữ liệu không được để trống", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -311,47 +382,12 @@ namespace BTL
             cbSupplier.Enabled = true;
             btnExport.Enabled = false;
             dgvProduct.Rows.Clear();
-            phieu.ngay = DateTime.Now;
             /*phieu.list.ForEach(item =>
             {
                 Console.WriteLine($"{item.nl.ten} - {item.soluong}");
             });*/
-            cnn.Open();
-            scm = new SqlCommand($@"insert into phieunhap(sopn, ngaynhap, manv)
-                 values ({phieu.sophieu},getdate(),{nv.ma})
-                ", cnn);
-            scm.ExecuteNonQuery();
-            cnn.Close();
-            phieu.list.ForEach(item =>
-            {
-                bool nguyenLieuDaCo = false;
-                cnn.Open();
-                scm = new SqlCommand($"select manl from nguyenlieu where manl = {item.nl.ma}", cnn);
-                reader = scm.ExecuteReader();
-                if (reader.Read())
-                {
-                    nguyenLieuDaCo = true;
-                }
-                cnn.Close();
-                if(nguyenLieuDaCo == false)
-                {
-                    cnn.Open();
-                    scm = new SqlCommand(
-                        $@"insert into nguyenlieu(manl, tennl, dvt, giatien, mancc)
-                            values ({item.nl.ma},N'{item.nl.ten}',N'{item.nl.dvt}',{item.nl.gia},{item.nl.ncc.ma})
-                            ", cnn);
-                    scm.ExecuteNonQuery();
-                    cnn.Close();
-                }
-                cnn.Open();
-                scm = new SqlCommand($@"insert into chitietphieunhap(sopn, manl, soluong)
-                         values ({phieu.sophieu},{item.nl.ma},{item.soluong})
-                        ", cnn);
-                scm.ExecuteNonQuery();
-                cnn.Close();
-            });
-            phieu.ngay = DateTime.Now;
-            ds_ph.Add(phieu);
+            
+            
             new Report(null).phieuNhap(phieu);
             phieu = new Phieu();
             action = "";
@@ -385,7 +421,7 @@ namespace BTL
         public void setData(int  manl, int index)
         {
             cnn.Open();
-            scm = new SqlCommand($"select * from nguyenlieu where maml = {manl}", cnn);
+            scm = new SqlCommand($"select * from nguyenlieu where manl = {manl}", cnn);
             reader = scm.ExecuteReader();
             while (reader.Read())
             {
@@ -407,6 +443,16 @@ namespace BTL
         private void cbSupplier_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            new DSPhieu(this, null).phieu(true);
         }
     }
 }

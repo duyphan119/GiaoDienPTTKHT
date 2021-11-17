@@ -86,6 +86,12 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="DSPhieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DSPhieu.Designer.cs">
+      <DependentUpon>DSPhieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Ban.cs" />
     <Compile Include="Model\ChiTietHoaDon.cs" />
     <Compile Include="Model\ChiTietPhieu.cs" />
@@ -153,6 +159,12 @@
     <Compile Include="ucKhoHang.Designer.cs">
       <DependentUpon>ucKhoHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucNguyenLieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNguyenLieu.Designer.cs">
+      <DependentUpon>ucNguyenLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucNhaCungCap.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -216,6 +228,9 @@
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DSPhieu.resx">
+      <DependentUpon>DSPhieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.rdlc" />
     <EmbeddedResource Include="NhapKho.resx">
       <DependentUpon>NhapKho.cs</DependentUpon>
@@ -244,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucKhoHang.resx">
       <DependentUpon>ucKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucNguyenLieu.resx">
+      <DependentUpon>ucNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucNhaCungCap.resx">
       <DependentUpon>ucNhaCungCap.cs</DependentUpon>

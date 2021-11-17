@@ -201,7 +201,7 @@ namespace BTL
                 reportViewer2.LocalReport.DataSources.Add(rds);
                 reportViewer2.RefreshReport();
                 cnn.Open();
-                SqlCommand scm = new SqlCommand("execute sp_ThanhToan " + hd.sohd, cnn);
+                SqlCommand scm = new SqlCommand($"execute sp_ThanhToan  {hd.sohd},'{hd.giora}'", cnn);
                 scm.ExecuteNonQuery();
                 cnn.Close();
             }

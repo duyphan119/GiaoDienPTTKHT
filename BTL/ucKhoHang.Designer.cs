@@ -98,6 +98,7 @@ namespace BTL
             this.btnProduct.UseCustomForeColor = true;
             this.btnProduct.UseSelectable = true;
             this.btnProduct.UseStyleColors = true;
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnSupplier
             // 

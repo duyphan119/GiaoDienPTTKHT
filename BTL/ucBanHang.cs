@@ -41,12 +41,6 @@ namespace BTL
             //panel1.Controls.Add(vScroller);
         }
 
-        private void listDishes_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Red, e.Bounds);
-            e.DrawText();
-        }
-
         private void btnAddDish_Click_1(object sender, EventArgs e)
         {
             if (vi_tri_ban != -1)
@@ -71,11 +65,6 @@ namespace BTL
             cnn = new SqlConnection(
                 @"Data Source=DESKTOP-NIULDEP\SQLEXPRESS;Initial Catalog=btl_pttkht;User ID=sa;Password=password"
             );
-            //Khởi tạo danh sách bàn
-            tables =
-                Enumerable.Range(1, 18)
-                .Select(i => (MetroButton)panel1.Controls["table" + i.ToString()])
-                .ToList();
             cnn.Open();
             scm = new SqlCommand("select * from ban", cnn);
             reader = scm.ExecuteReader();
@@ -83,16 +72,27 @@ namespace BTL
             {
                 Ban ban = new Ban(reader.GetInt32(0), reader.GetBoolean(1));
                 ds_ban.Add(ban);
-                if(ban.trangthai == false)
+
+            }
+            //Khởi tạo danh sách bàn
+            tables =
+                Enumerable.Range(1, ds_ban.Count)
+                .Select(i => (MetroButton)panel1.Controls["table" + i.ToString()])
+                .ToList();
+            int x = 0;
+            ds_ban.ForEach(item =>
+            {
+                if (item.trangthai == false)
                 {
-                    tables[ds_ban.Count - 1].BackColor = Color.RoyalBlue;
+                    tables[x].BackColor = Color.RoyalBlue;
                 }
                 else
                 {
-                    tables[ds_ban.Count - 1].BackColor = Color.White;
+                    tables[x].BackColor = Color.White;
                 }
-                tables[ds_ban.Count - 1].Click += new EventHandler(xem_thong_tin_ban);
-            }
+                tables[x].Click += new EventHandler(xem_thong_tin_ban);
+                x++;
+            });
             cnn.Close();
             //Lấy ra danh sách nhân viên
             cnn.Open();
@@ -173,11 +173,12 @@ namespace BTL
 
         private void btnPrintBill_Click(object sender, EventArgs e)
         {
+            ds_hd[vi_tri_hoa_don].giora = DateTime.Now;
             dgvFood.Rows.Clear();
             totalPrice = 0;
             lbPriceSum.Text = "Tổng tiền: 0đ";
             lblTimeIn.Text = "Giờ khách vào: ";
-            tables[vi_tri_ban].BackColor = Color.RoyalBlue;
+            tables[vi_tri_ban].BackColor = Color.White;
             new Report(ds_hd[vi_tri_hoa_don]).Visible = true;
             vi_tri_ban = -1;
             lblInfoTable.Text = "Bàn: ";
@@ -200,7 +201,7 @@ namespace BTL
                 
                 scm.ExecuteNonQuery();
                 cnn.Close();
-                tables[vi_tri_ban].BackColor = Color.Red;
+                tables[vi_tri_ban].BackColor = Color.RoyalBlue;
                 HoaDon hd = new HoaDon(ds_hd.Count + 1, DateTime.Now, DateTime.Now, nv, ds_ban[vi_tri_ban], new List<ChiTietHoaDon>());
                 lblTimeIn.Text = "Giờ khách vào: " + hd.giovao.ToString();
                 ds_hd.Add(hd);

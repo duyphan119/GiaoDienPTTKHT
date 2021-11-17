@@ -41,21 +41,22 @@ namespace BTL
             this.cbId = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listTable = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(619, 37);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label1.Location = new System.Drawing.Point(667, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 40);
+            this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 15;
             this.label1.Text = "Tìm kiếm";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -63,15 +64,15 @@ namespace BTL
             // 
             // cbSearch
             // 
-            this.cbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbSearch.FormattingEnabled = true;
             this.cbSearch.Items.AddRange(new object[] {
             "Trống",
             "Có Khách",
             "Tất Cả"});
-            this.cbSearch.Location = new System.Drawing.Point(748, 42);
+            this.cbSearch.Location = new System.Drawing.Point(781, 42);
             this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(220, 33);
+            this.cbSearch.Size = new System.Drawing.Size(159, 26);
             this.cbSearch.TabIndex = 17;
             this.cbSearch.SelectedIndexChanged += new System.EventHandler(this.cbSearch_SelectedIndexChanged);
             this.cbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSearch_KeyPress);
@@ -88,9 +89,9 @@ namespace BTL
             this.panel1.Controls.Add(this.cbId);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(608, 91);
+            this.panel1.Location = new System.Drawing.Point(635, 91);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 430);
+            this.panel1.Size = new System.Drawing.Size(333, 430);
             this.panel1.TabIndex = 18;
             // 
             // btnSave
@@ -98,16 +99,16 @@ namespace BTL
             this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnSave.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 20;
+            this.btnSave.BorderRadius = 2;
             this.btnSave.BorderSize = 0;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(28, 363);
+            this.btnSave.Location = new System.Drawing.Point(26, 365);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(330, 50);
+            this.btnSave.Size = new System.Drawing.Size(278, 40);
             this.btnSave.TabIndex = 28;
             this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.White;
@@ -119,16 +120,16 @@ namespace BTL
             this.btnDelete.BackColor = System.Drawing.Color.BlueViolet;
             this.btnDelete.BackgroundColor = System.Drawing.Color.BlueViolet;
             this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BorderRadius = 20;
+            this.btnDelete.BorderRadius = 2;
             this.btnDelete.BorderSize = 0;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(209, 296);
+            this.btnDelete.Location = new System.Drawing.Point(197, 296);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(150, 50);
+            this.btnDelete.Size = new System.Drawing.Size(107, 38);
             this.btnDelete.TabIndex = 25;
             this.btnDelete.Text = "Xoá";
             this.btnDelete.TextColor = System.Drawing.Color.White;
@@ -140,7 +141,7 @@ namespace BTL
             this.btnCancel.BackColor = System.Drawing.Color.SkyBlue;
             this.btnCancel.BackgroundColor = System.Drawing.Color.SkyBlue;
             this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancel.BorderRadius = 20;
+            this.btnCancel.BorderRadius = 2;
             this.btnCancel.BorderSize = 0;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
@@ -149,7 +150,7 @@ namespace BTL
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Location = new System.Drawing.Point(26, 296);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 50);
+            this.btnCancel.Size = new System.Drawing.Size(107, 38);
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Huỷ bỏ";
             this.btnCancel.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -161,16 +162,16 @@ namespace BTL
             this.btnEdit.BackColor = System.Drawing.Color.SlateBlue;
             this.btnEdit.BackgroundColor = System.Drawing.Color.SlateBlue;
             this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEdit.BorderRadius = 20;
+            this.btnEdit.BorderRadius = 2;
             this.btnEdit.BorderSize = 0;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(209, 222);
+            this.btnEdit.Location = new System.Drawing.Point(197, 222);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(150, 50);
+            this.btnEdit.Size = new System.Drawing.Size(107, 37);
             this.btnEdit.TabIndex = 23;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.TextColor = System.Drawing.Color.White;
@@ -182,7 +183,7 @@ namespace BTL
             this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAdd.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.btnAdd.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAdd.BorderRadius = 20;
+            this.btnAdd.BorderRadius = 2;
             this.btnAdd.BorderSize = 0;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderSize = 0;
@@ -191,7 +192,7 @@ namespace BTL
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(26, 222);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(150, 50);
+            this.btnAdd.Size = new System.Drawing.Size(107, 37);
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.TextColor = System.Drawing.Color.White;
@@ -201,25 +202,25 @@ namespace BTL
             // cbStatus
             // 
             this.cbStatus.Enabled = false;
-            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Trống",
             "Có Khách"});
-            this.cbStatus.Location = new System.Drawing.Point(139, 111);
+            this.cbStatus.Location = new System.Drawing.Point(145, 111);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(220, 33);
+            this.cbStatus.Size = new System.Drawing.Size(159, 26);
             this.cbStatus.TabIndex = 3;
             this.cbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbStatus_KeyPress);
             // 
             // cbId
             // 
             this.cbId.Enabled = false;
-            this.cbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbId.FormattingEnabled = true;
-            this.cbId.Location = new System.Drawing.Point(139, 53);
+            this.cbId.Location = new System.Drawing.Point(145, 53);
             this.cbId.Name = "cbId";
-            this.cbId.Size = new System.Drawing.Size(220, 33);
+            this.cbId.Size = new System.Drawing.Size(159, 26);
             this.cbId.TabIndex = 2;
             this.cbId.SelectedIndexChanged += new System.EventHandler(this.cbId_SelectedIndexChanged);
             this.cbId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbId_KeyPress);
@@ -227,49 +228,22 @@ namespace BTL
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 114);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label3.Location = new System.Drawing.Point(31, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 25);
+            this.label3.Size = new System.Drawing.Size(73, 18);
             this.label3.TabIndex = 1;
             this.label3.Text = "Trạng thái";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 56);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label2.Location = new System.Drawing.Point(31, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 25);
+            this.label2.Size = new System.Drawing.Size(55, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Số bàn";
-            // 
-            // listTable
-            // 
-            this.listTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listTable.FullRowSelect = true;
-            this.listTable.GridLines = true;
-            this.listTable.HideSelection = false;
-            this.listTable.Location = new System.Drawing.Point(32, 56);
-            this.listTable.Name = "listTable";
-            this.listTable.Size = new System.Drawing.Size(541, 465);
-            this.listTable.TabIndex = 19;
-            this.listTable.UseCompatibleStateImageBehavior = false;
-            this.listTable.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Số Bàn";
-            this.columnHeader1.Width = 186;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Trạng thái";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 200;
             // 
             // panel2
             // 
@@ -289,12 +263,45 @@ namespace BTL
             this.label4.TabIndex = 22;
             this.label4.Text = "Danh Sách Bàn";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(33, 91);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(540, 430);
+            this.dataGridView1.TabIndex = 21;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Số Bàn";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Trạng Thái";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // ucQuanLyBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.listTable);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbSearch);
             this.Controls.Add(this.label1);
@@ -305,6 +312,7 @@ namespace BTL
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -321,11 +329,11 @@ namespace BTL
         private RJButton btnCancel;
         private RJButton btnEdit;
         private RJButton btnAdd;
-        private System.Windows.Forms.ListView listTable;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private RJButton btnSave;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

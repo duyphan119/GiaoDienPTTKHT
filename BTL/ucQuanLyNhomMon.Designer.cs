@@ -234,13 +234,17 @@ namespace BTL
             // 
             // dgvGroup
             // 
+            this.dgvGroup.AllowUserToAddRows = false;
+            this.dgvGroup.AllowUserToDeleteRows = false;
             this.dgvGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGroup.BackgroundColor = System.Drawing.Color.White;
             this.dgvGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
             this.dgvGroup.Location = new System.Drawing.Point(33, 63);
             this.dgvGroup.Name = "dgvGroup";
+            this.dgvGroup.RowHeadersVisible = false;
             this.dgvGroup.RowHeadersWidth = 51;
             this.dgvGroup.RowTemplate.Height = 24;
             this.dgvGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

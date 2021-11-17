@@ -283,7 +283,7 @@ namespace BTL
             this.btnSave.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnSave.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
             this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 20;
+            this.btnSave.BorderRadius = 5;
             this.btnSave.BorderSize = 0;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Enabled = false;
@@ -305,7 +305,7 @@ namespace BTL
             this.btnDelete.BackColor = System.Drawing.Color.PaleVioletRed;
             this.btnDelete.BackgroundColor = System.Drawing.Color.PaleVioletRed;
             this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BorderRadius = 20;
+            this.btnDelete.BorderRadius = 5;
             this.btnDelete.BorderSize = 0;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
@@ -326,7 +326,7 @@ namespace BTL
             this.btnCancel.BackColor = System.Drawing.Color.Thistle;
             this.btnCancel.BackgroundColor = System.Drawing.Color.Thistle;
             this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancel.BorderRadius = 20;
+            this.btnCancel.BorderRadius = 5;
             this.btnCancel.BorderSize = 0;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
@@ -347,7 +347,7 @@ namespace BTL
             this.btnEdit.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnEdit.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEdit.BorderRadius = 20;
+            this.btnEdit.BorderRadius = 5;
             this.btnEdit.BorderSize = 0;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FlatAppearance.BorderSize = 0;
@@ -368,7 +368,7 @@ namespace BTL
             this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAdd.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.btnAdd.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAdd.BorderRadius = 20;
+            this.btnAdd.BorderRadius = 5;
             this.btnAdd.BorderSize = 0;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderSize = 0;
@@ -397,9 +397,11 @@ namespace BTL
             // 
             // dgvEmployee
             // 
+            this.dgvEmployee.AllowUserToAddRows = false;
+            this.dgvEmployee.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployee.BackgroundColor = System.Drawing.Color.White;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -415,6 +417,7 @@ namespace BTL
             this.dgvEmployee.Location = new System.Drawing.Point(0, 29);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.ReadOnly = true;
+            this.dgvEmployee.RowHeadersVisible = false;
             this.dgvEmployee.RowHeadersWidth = 51;
             this.dgvEmployee.RowTemplate.Height = 24;
             this.dgvEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -424,74 +427,67 @@ namespace BTL
             // 
             // Column1
             // 
-            this.Column1.FillWeight = 262.0321F;
+            this.Column1.FillWeight = 66.96917F;
             this.Column1.HeaderText = "Mã NV";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 82;
             // 
             // Column2
             // 
-            this.Column2.FillWeight = 72.99465F;
+            this.Column2.FillWeight = 171.1229F;
             this.Column2.HeaderText = "Tên";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 62;
             // 
             // Column7
             // 
-            this.Column7.FillWeight = 72.99465F;
+            this.Column7.FillWeight = 82.10625F;
             this.Column7.HeaderText = "Ngày sinh";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 102;
             // 
             // Column3
             // 
-            this.Column3.FillWeight = 72.99465F;
+            this.Column3.FillWeight = 80.30882F;
             this.Column3.HeaderText = "Giới tính";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 91;
             // 
             // Column4
             // 
-            this.Column4.FillWeight = 72.99465F;
+            this.Column4.FillWeight = 91.68764F;
             this.Column4.HeaderText = "SĐT";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 67;
             // 
             // Column6
             // 
-            this.Column6.FillWeight = 72.99465F;
+            this.Column6.FillWeight = 97.11487F;
             this.Column6.HeaderText = "Chức vụ";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 91;
             // 
             // Column5
             // 
-            this.Column5.FillWeight = 72.99465F;
+            this.Column5.FillWeight = 77.64615F;
             this.Column5.HeaderText = "Quyền";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 80;
             // 
             // Column8
             // 
+            this.Column8.FillWeight = 133.0438F;
             this.Column8.HeaderText = "Mật khẩu";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 98;
             // 
             // ucQuanLyTaiKhoan
             // 
@@ -537,6 +533,7 @@ namespace BTL
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTime;
         private System.Windows.Forms.Label label7;
+        private RJButton btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -545,6 +542,5 @@ namespace BTL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private RJButton btnDelete;
     }
 }
