@@ -114,6 +114,7 @@ namespace BTL
             this.txtPassword.Size = new System.Drawing.Size(351, 30);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "Mật khẩu";
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPassword_MouseClick);
             // 
             // txtID

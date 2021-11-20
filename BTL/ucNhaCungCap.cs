@@ -98,6 +98,7 @@ namespace BTL
                     ncc.ma, ncc.ten, ncc.diachi, ncc.sdt
                 });
             }
+            dgvSupplier.ClearSelection();
             cnn.Close();
         }
 
@@ -118,11 +119,11 @@ namespace BTL
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            for (int i = dgvSupplier.SelectedRows.Count - 1; i >= 0; i--)
             {
-                for (int i = dgvSupplier.SelectedRows.Count - 1; i >= 0; i--)
+                int index = dgvSupplier.SelectedRows[i].Index;
+                try
                 {
-                    int index = dgvSupplier.SelectedRows[i].Index;
                     cnn.Open();
                     scm = new SqlCommand("delete from nhacungcap where mancc = " + ds_ncc[index].ma, cnn);
                     scm.ExecuteNonQuery();
@@ -130,12 +131,47 @@ namespace BTL
                     dgvSupplier.Rows.RemoveAt(index);
                     ds_ncc.RemoveAt(index);
                     cbId.Items.RemoveAt(index);
+                    dgvSupplier.ClearSelection();
                 }
-            }
-            catch (SqlException er)
-            {
-                MessageBox.Show(this, "Xoá không thành công", "Chú ý", MessageBoxButtons.OK);
-                Console.WriteLine(er);
+                catch (SqlException er)
+                {
+                    cnn.Close();
+                    DialogResult answer = MessageBox.Show(this,
+                        $@"Nguyên liệu <{ds_ncc[index].ten}> có liên quan đến các dữ liệu khác. Bạn có thật sự muốn xoá ?",
+                        "Lưu ý",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (answer == DialogResult.Yes)
+                    {
+                        List<int> ds_ma = new List<int>();
+                        cnn.Open();
+                        scm = new SqlCommand($@"
+                                select manl from nguyenlieu where mancc = {ds_ncc[index].ma};", cnn);
+                        reader = scm.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            int manl = reader.GetInt32(0);
+                            ds_ma.Add(manl);
+                        }
+                        cnn.Close();
+                        ds_ma.ForEach(manl =>
+                        {
+                            cnn.Open();
+                            scm = new SqlCommand($@"
+                                delete from chitietphieunhap where manl ={manl};
+                                delete from chitietphieuxuat where manl ={manl};
+                                delete from nguyenlieu where mancc = {ds_ncc[index].ma};
+                                delete from nhacungcap where mancc = {ds_ncc[index].ma};", cnn);
+                            scm.ExecuteNonQuery();
+                            cnn.Close();
+                        });
+
+                        dgvSupplier.Rows.RemoveAt(index);
+                        ds_ncc.RemoveAt(index);
+                        cbId.Items.RemoveAt(index);
+                    }
+                    Console.WriteLine(er);
+                }
             }
         }
         public NhaCungCap getData()
@@ -209,6 +245,7 @@ namespace BTL
                     scm.ExecuteNonQuery();
                     cnn.Close();
                     reset();
+                    dgvSupplier.ClearSelection();
                 }
                 else
                 {

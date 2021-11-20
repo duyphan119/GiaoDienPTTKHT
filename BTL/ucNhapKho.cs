@@ -31,7 +31,6 @@ namespace BTL
             InitializeComponent();
             nv = x;
         }
-
         private void ucNhapKho_Load(object sender, EventArgs e)
         {
             cnn = new SqlConnection(
@@ -93,6 +92,11 @@ namespace BTL
                 ds_ph.Add(ph);
             }
             cnn.Close();
+            dgvProduct.Rows.Add(new object[]
+            {
+                "", "", "","",""
+            });
+            dgvProduct.Rows.RemoveAt(0);
         }
 
         public void moPhieu(Phieu p)

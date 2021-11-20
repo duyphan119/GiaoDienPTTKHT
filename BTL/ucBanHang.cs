@@ -16,17 +16,19 @@ namespace BTL
 {
     public partial class ucBanHang : UserControl
     {
+        private const string NEW = "Thêm danh sách món";
+        private const string OLD = "Cập nhật danh sách món";
+        private string action = "";
         private SqlConnection cnn;
         private SqlCommand scm;
         private SqlDataReader reader;
         private NhanVien nv = new NhanVien();
-        private List<MetroButton> tables;
         private List<Ban> ds_ban = new List<Ban>();
         private List<HoaDon> ds_hd = new List<HoaDon>();
         private List<NhanVien> ds_nv = new List<NhanVien>();
         private int totalPrice = 0;
-        private int vi_tri_ban = -1;
         private int vi_tri_hoa_don = -1;
+        private DAO.DAO_NhanVien dao_nv = new DAO.DAO_NhanVien();
         public ucBanHang(NhanVien x)
         {
             InitializeComponent();
@@ -35,29 +37,7 @@ namespace BTL
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            //VScrollBar vScroller = new VScrollBar();
-            //vScroller.Height = 200;
-            //vScroller.Width = 5;
-            //panel1.Controls.Add(vScroller);
-        }
-
-        private void btnAddDish_Click_1(object sender, EventArgs e)
-        {
-            if (vi_tri_ban != -1)
-            {
-                if(vi_tri_hoa_don != -1)
-                {
-                    new ThemMon(this, ds_hd[vi_tri_hoa_don]).Visible = true;
-                }
-                else
-                {
-                    MessageBox.Show(this, "Chưa đặt bàn", "Chú ý", MessageBoxButtons.OK);
-                }
-            }
-            else
-            {
-                MessageBox.Show(this, "Chưa chọn bàn", "Chú ý", MessageBoxButtons.OK);
-            }
+           
         }
 
         private void ucBanHang_Load(object sender, EventArgs e)
@@ -72,48 +52,11 @@ namespace BTL
             {
                 Ban ban = new Ban(reader.GetInt32(0), reader.GetBoolean(1));
                 ds_ban.Add(ban);
-
+                fpnlTable.Controls.Add(new ucBan(this, ban));
             }
-            //Khởi tạo danh sách bàn
-            tables =
-                Enumerable.Range(1, ds_ban.Count)
-                .Select(i => (MetroButton)panel1.Controls["table" + i.ToString()])
-                .ToList();
-            int x = 0;
-            ds_ban.ForEach(item =>
-            {
-                if (item.trangthai == false)
-                {
-                    tables[x].BackColor = Color.RoyalBlue;
-                }
-                else
-                {
-                    tables[x].BackColor = Color.White;
-                }
-                tables[x].Click += new EventHandler(xem_thong_tin_ban);
-                x++;
-            });
             cnn.Close();
             //Lấy ra danh sách nhân viên
-            cnn.Open();
-            scm = new SqlCommand("select * from nhanvien ", cnn);
-            reader = scm.ExecuteReader();
-            while (reader.Read())
-            {
-                int manv = reader.GetInt32(0);
-                string tennv = reader.GetString(1);
-                DateTime ngaysinh = reader.GetDateTime(7);
-                string gioitinh = reader.GetString(2);
-                string sdt = reader.GetString(3);
-                string chucvu = reader.GetString(4);
-                string quyen = reader.GetString(6);
-                string matkhau = reader.GetString(5);
-                NhanVien nv = new NhanVien(
-                    tennv, ngaysinh, gioitinh, manv, sdt, chucvu, quyen, matkhau
-                );
-                ds_nv.Add(nv);
-            }
-            cnn.Close();
+            ds_nv = dao_nv.getAll();
             //Lấy ra danh sách hoá đơn
             cnn.Open();
             scm = new SqlCommand("select * from hoadon ", cnn);
@@ -133,23 +76,29 @@ namespace BTL
             cnn.Close();
         }
 
-        private void xem_thong_tin_ban(object sender, EventArgs e)
+        public void xemThongTinBan(Ban b)
         {
+            
+            List<ChiTietHoaDon> ds_mon_trong_hd = new List<ChiTietHoaDon>();
             totalPrice = 0;
-            MetroButton ban_dang_chon = (sender as MetroButton);
-            cnn.Open();
-            int index = tables.FindIndex(table => ban_dang_chon.Text == table.Text);
-            vi_tri_ban = index;
-            Ban ban = ds_ban[index];
-            scm = new SqlCommand("execute sp_DanhSachMonAnCuaBan " + ban.soban, cnn);
-            reader = scm.ExecuteReader();
             dgvFood.Rows.Clear();
+
+            cnn.Open();
+            scm = new SqlCommand($@"select hd.sohd, m.mamon, m.tenmon, cthd.soluong , m.dvt, m.giatien, (cthd.soluong * m.giatien) as 'thanhtien', m.manhom, nh.tennhom
+			from hoadon hd, monan m, chitiethoadon cthd, nhommon nh
+			where hd.sohd = cthd.sohd and m.mamon = cthd.mamon and hd.giora = hd.giovao and m.manhom = nh.manhom and hd.soban = {b.soban}", cnn);
+            reader = scm.ExecuteReader();
             while (reader.Read())
             {
+                int mamon = reader.GetInt32(1);
                 string ten = reader.GetString(2);
                 int soluong = reader.GetInt32(3);
                 string dvt = reader.GetString(4);
                 int dongia = reader.GetInt32(5);
+                int manhom = reader.GetInt32(7);
+                string tennhom = reader.GetString(8);
+                ds_mon_trong_hd.Add(new ChiTietHoaDon(new MonAn(new NhomMon(manhom,tennhom),mamon, ten, dvt, dongia), soluong));
+
                 dgvFood.Rows.Add(new object[]
                 {
                     ten, dvt, soluong, dongia
@@ -157,20 +106,58 @@ namespace BTL
                 totalPrice += soluong * dongia;
             }
             cnn.Close();
-            lblInfoTable.Text = "Bàn: " + ds_ban[vi_tri_ban].soban;
+
+            lblInfoTable.Text = "Bàn: " + b.soban;
             lbPriceSum.Text = "Tổng tiền: " + totalPrice.ToString("#,##") + "đ";
-            vi_tri_hoa_don = ds_hd.FindIndex(item => item.ban.soban == ds_ban[vi_tri_ban].soban && item.giora == item.giovao);
+            vi_tri_hoa_don = ds_hd.FindIndex(item => item.ban.soban == b.soban && item.giora == item.giovao);
             if (vi_tri_hoa_don != -1)
             {
-                lblTimeIn.Text = "Giờ khách vào: " + ds_hd[vi_tri_hoa_don].giovao.ToString();
+                lblTimeIn.Text = $"Giờ khách vào: {ds_hd[vi_tri_hoa_don].giovao.ToString("dd-MM-yyyy HH:mm:ss")}";
+                ds_hd[vi_tri_hoa_don].ds_mon = ds_mon_trong_hd;
             }
             else
             {
                 lblTimeIn.Text = "Giờ khách vào: ";
             }
-            lbPriceSum.Text = "Tổng tiền: "+ ((totalPrice == 0) ? ""+0 : totalPrice.ToString("#,##") )+ "đ";
+            lbPriceSum.Text = "Tổng tiền: " + ((totalPrice == 0) ? "" + 0 : totalPrice.ToString("#,##")) + "đ";
+            
         }
+        public void datMon(Button btn_Ban, Ban b)
+        {
+            List<ChiTietHoaDon> ds_mon_trong_hd = new List<ChiTietHoaDon>();
+            cnn.Open();
+            scm = new SqlCommand($@"select hd.sohd, m.mamon, m.tenmon, cthd.soluong , m.dvt, m.giatien, (cthd.soluong * m.giatien) as 'thanhtien', m.manhom, nh.tennhom
+			from hoadon hd, monan m, chitiethoadon cthd, nhommon nh
+			where hd.sohd = cthd.sohd and m.mamon = cthd.mamon and hd.giora = hd.giovao and m.manhom = nh.manhom and hd.soban = {b.soban}", cnn);
+            reader = scm.ExecuteReader();
+            while (reader.Read())
+            {
+                int mamon = reader.GetInt32(1);
+                string ten = reader.GetString(2);
+                int soluong = reader.GetInt32(3);
+                string dvt = reader.GetString(4);
+                int dongia = reader.GetInt32(5);
+                int manhom = reader.GetInt32(7);
+                string tennhom = reader.GetString(8);
+                ds_mon_trong_hd.Add(new ChiTietHoaDon(new MonAn(new NhomMon(manhom, tennhom), mamon, ten, dvt, dongia), soluong));
+            }
+            cnn.Close();
 
+            HoaDon _hd = ds_hd.Find(item => item.ban.soban == b.soban && item.giora == item.giovao);
+            if (_hd != null)
+            {
+                action = OLD;
+                _hd.ds_mon = ds_mon_trong_hd;
+            }
+            else
+            {
+                action = NEW;
+                //Bàn này chưa có hoá đơn
+                DateTime now = DateTime.Now;
+                _hd = new HoaDon((ds_hd.Count == 0) ? 1 : (ds_hd[ds_hd.Count - 1].sohd + 1), now, now, nv, b, new List<ChiTietHoaDon>());
+            }
+            new ThemMon(this, _hd, btn_Ban).Visible = true;
+        }
         private void btnPrintBill_Click(object sender, EventArgs e)
         {
             ds_hd[vi_tri_hoa_don].giora = DateTime.Now;
@@ -178,60 +165,79 @@ namespace BTL
             totalPrice = 0;
             lbPriceSum.Text = "Tổng tiền: 0đ";
             lblTimeIn.Text = "Giờ khách vào: ";
-            tables[vi_tri_ban].BackColor = Color.White;
             new Report(ds_hd[vi_tri_hoa_don]).Visible = true;
-            vi_tri_ban = -1;
             lblInfoTable.Text = "Bàn: ";
             vi_tri_hoa_don = -1;
         }
 
-        private void btnAddTable_Click(object sender, EventArgs e)
+        public void order(Button btn_Ban, HoaDon _hd)
         {
-            if (ds_ban[vi_tri_ban].trangthai == true)
+            if (_hd != null) 
             {
-                cnn.Open();
-                if (ds_hd.Count > 0)
+                Console.WriteLine(action);
+                totalPrice = 0;
+                if (action == NEW)
                 {
-                    scm = new SqlCommand("execute sp_datBan " + (ds_hd[ds_hd.Count - 1].sohd + 1) + "," + ds_ban[vi_tri_ban].soban + "," + 10, cnn);
+                    /*
+                    create proc sp_datBan (@sohd int, @soban int, @manv int)
+                    as
+	                    begin
+		                    declare @now datetime;
+		                    set @now = getdate();
+		                    update ban set trangthai = 0 where soban = @soban;
+		                    insert into hoadon(sohd, giovao,giora, soban, manv) values (@sohd, @now,@now,@soban, @manv); 
+	                    end
+                     */
+                    cnn.Open();
+                    scm = new SqlCommand($"execute sp_datBan {_hd.sohd},{_hd.ban.soban},{_hd.nv.ma}", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
+                    //Cập nhật lại giờ theo trong sql
+                    cnn.Open();
+                    scm = new SqlCommand($"select giovao from hoadon where sohd = {_hd.sohd}", cnn);
+                    reader = scm.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        _hd.giovao = _hd.giora = reader.GetDateTime(0);
+                    }
+                    cnn.Close();
+                    //Đổi màu cái bàn
+                    btn_Ban.BackColor = Color.Red;
                 }
                 else
                 {
-                    scm = new SqlCommand("execute sp_datBan " + 1 + "," + ds_ban[vi_tri_ban].soban + "," + 10, cnn);
+                    //Cập nhật danh sách món
+                    //Xoá hết chi tiết hoá đơn 
+                    //Rồi thêm lại chi tiết hoá đơn mới
+                    cnn.Open();
+                    if (ds_hd.Count > 0)
+                        scm = new SqlCommand($"delete from chitiethoadon where sohd = {_hd.sohd}", cnn);
+                    scm.ExecuteNonQuery();
+                    cnn.Close();
                 }
-                
-                scm.ExecuteNonQuery();
-                cnn.Close();
-                tables[vi_tri_ban].BackColor = Color.RoyalBlue;
-                HoaDon hd = new HoaDon(ds_hd.Count + 1, DateTime.Now, DateTime.Now, nv, ds_ban[vi_tri_ban], new List<ChiTietHoaDon>());
-                lblTimeIn.Text = "Giờ khách vào: " + hd.giovao.ToString();
-                ds_hd.Add(hd);
-                vi_tri_hoa_don = ds_hd.Count - 1;
-            }
-            else
-            {
-                MessageBox.Show(this, "Bàn này đã có người", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void order(HoaDon _hd)
-        {
-            totalPrice = 0;
-            ds_hd[vi_tri_hoa_don] = _hd;
-            ds_hd[vi_tri_hoa_don].ds_mon.ForEach(item =>
-            {
-                dgvFood.Rows.Add(new object[]
+                action = "";
+                dgvFood.Rows.Clear();
+                //Lưu danh sách món
+                _hd.ds_mon.ForEach(item =>
                 {
-                    item.mon.ten, item.mon.dvt, item.soluong, item.mon.gia
+                    if (item.soluong != 0)
+                    {
+                        cnn.Open();
+                        scm = new SqlCommand($@"insert into chitiethoadon (sohd, mamon, soluong)  
+                            values({_hd.sohd},{item.mon.mamon},{item.soluong})", cnn);
+                        scm.ExecuteNonQuery();
+                        cnn.Close();
+                        dgvFood.Rows.Add(new object[]
+                        {
+                            item.mon.ten, item.mon.dvt, item.soluong, item.mon.gia
+                        });
+                        totalPrice += item.soluong * item.mon.gia;
+                    }
                 });
-                totalPrice += item.soluong * item.mon.gia;
-                cnn.Open();
-                scm = new SqlCommand(
-                    "insert into chitiethoadon (sohd, mamon, soluong) " +
-                    "values("+ ds_hd[vi_tri_hoa_don].sohd+", "+item.mon.mamon+", "+item.soluong+")", cnn);
-                scm.ExecuteNonQuery();
-                cnn.Close();
-            });
-            lbPriceSum.Text = "Tổng tiền: " + totalPrice.ToString("#,##") + "đ";
+                lblInfoTable.Text = $"Bàn {_hd.ban.soban}";
+                lblTimeIn.Text = $"Giờ khách vào: {_hd.giovao.ToString("dd-MM-yyyy HH:mm:ss")}";
+                lbPriceSum.Text = "Tổng tiền: " + totalPrice.ToString("#,##") + "đ";
+            }
         }
     }
 }

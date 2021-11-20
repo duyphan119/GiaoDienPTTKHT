@@ -146,6 +146,12 @@ namespace BTL
                 ds_ph.Add(ph);
             }
             cnn.Close();
+            dgvProduct.Rows.Add(new object[]
+            {
+                "", "", "","",""
+            });
+            dgvProduct.Rows.RemoveAt(0);
+            dgvProduct.ClearSelection();
         }
 
         internal void moPhieu(Phieu p)

@@ -5,27 +5,29 @@ create table nhanvien
 (
 	manv int primary key,
 	tennv nvarchar(50) not null,
-	gioitinh nvarchar(5) not null ,
+	ngaysinh datetime not null,
+	gioitinh nvarchar(5) not null,
+	diachi nvarchar(150) not null,
 	sdt varchar(11) not null,
 	chucvu nvarchar(30) not null,
-	matkhau varchar(20) not null,
-	quyen varchar(10) not null default 'admin',
-	ngaysinh datetime not null
+	matkhau varchar(100) not null,
 );
 
-insert into nhanvien(manv, tennv, ngaysinh, gioitinh, sdt, chucvu, matkhau, quyen) values
-(1, N'Phan Khánh Duy','1989-01-01', N'Nam', '0375593241', N'Giám Đốc', '123456', 'admin'),
-(2, N'Nguyễn Hữu An','1989-02-01', N'Nam', '0375593242', N'Bếp Trưởng', '123456', 'admin'),
-(3, N'Phạm Minh Hiếu','1989-03-01', N'Nam', '0375593243', N'Thủ Kho', '123456', 'admin'),
-(4, N'Trần Mặc Khải','1989-04-01', N'Nam', '0375593244', N'Kế Toán Trưởng', '123456', 'admin'),
-(5, N'Trần Tấn Nhựt','1989-05-01', N'Nam', '0375593245', N'Nhân Viên Kế Toán', '123456', 'admin'),
-(6, N'Nguyễn Văn Bê','1999-02-01', N'Nam', '0375593246', N'Bảo Vệ', '123456', 'user'),
-(7, N'Nguyễn Văn Xê','1999-03-01', N'Nam', '0375593247', N'Lao Công', '123456', 'user'),
-(8, N'Trần Văn An','1999-04-01', N'Nam', '0375593248', N'Nhân Viên Chạy Bàn', '123456', 'user'),
-(9, N'Trần Văn Bê','1999-01-01', N'Nam', '0375593249', N'Lễ Tân', '123456', 'user'),
-(10, N'Trần Văn Xê','1999-11-01', N'Nam', '0372592249', N'Nhân Viên Phục Vụ', '123456', 'user'),
-(11, N'Trần Văn Đê','1999-07-01', N'Nam', '0375592249', N'Nhân Viên Phục Vụ', '123456', 'user'),
-(12, N'Trần Văn Gờ','1999-01-06', N'Nam', '0375591249', N'Nhân Viên Đầu Bếp', '123456', 'user');
+select * from nhanvien
+
+insert into nhanvien(manv, tennv, ngaysinh, gioitinh, sdt, chucvu, matkhau, diachi) values
+(1, N'Phan Khánh Duy','1989-01-01', N'Nam', '0375593241', N'Giám Đốc', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(2, N'Nguyễn Hữu An','1989-02-01', N'Nam', '0375593242', N'Bếp Trưởng', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(3, N'Phạm Minh Hiếu','1989-03-01', N'Nam', '0375593243', N'Thủ Kho', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(4, N'Trần Mặc Khải','1989-04-01', N'Nam', '0375593244', N'Kế Toán Trưởng', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(5, N'Trần Tấn Nhựt','1989-05-01', N'Nam', '0375593245', N'Nhân Viên Kế Toán', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(6, N'Nguyễn Văn Bê','1999-02-01', N'Nam', '0375593246', N'Bảo Vệ', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(7, N'Nguyễn Văn Xê','1999-03-01', N'Nam', '0375593247', N'Lao Công', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(8, N'Trần Văn An','1999-04-01', N'Nam', '0375593248', N'Nhân Viên Chạy Bàn', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(9, N'Trần Văn Bê','1999-01-01', N'Nam', '0375593249', N'Lễ Tân', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(10, N'Trần Văn Xê','1999-11-01', N'Nam', '0372592249', N'Nhân Viên Phục Vụ', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(11, N'Trần Văn Đê','1999-07-01', N'Nam', '0375592249', N'Nhân Viên Phục Vụ', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),
+(12, N'Trần Văn Gờ','1999-01-06', N'Nam', '0375591249', N'Nhân Viên Đầu Bếp', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh');
 select * from nhanvien;
 
 create table nhommon
@@ -49,7 +51,7 @@ create table monan
 	giatien int not null,
 	dvt nvarchar(10) not null,
 	manhom int,
-	foreign key (manhom) references nhommon(manhom)
+	foreign key (manhom) references nhommon(manhom) on delete cascade
 );
 select * from monan;
 
@@ -140,7 +142,8 @@ create table ban
 );
 insert into ban(soban, trangthai) values
 (1,1),(2,1),(3,1),(4,1),(5,0),(6,1),(7,1),(8,1),(9,1),
-(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1);
+(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1),
+(19,1),(20,1),(21,1),(22,1),(23,1),(24,1),(25,1),(26,1),(27,1);
 
 create table hoadon
 (
@@ -149,8 +152,8 @@ create table hoadon
 	giora datetime,
 	manv int,
 	soban int,
-	foreign key (manv) references nhanvien(manv),
-	foreign key (soban) references ban(soban)
+	foreign key (manv) references nhanvien(manv) on delete cascade,
+	foreign key (soban) references ban(soban) on delete cascade
 );
 select * from hoadon
 
@@ -159,8 +162,8 @@ create table chitiethoadon
 	sohd int,
 	mamon int,
 	soluong int,
-	foreign key (sohd) references hoadon(sohd),
-	foreign key (mamon) references monan(mamon),
+	foreign key (sohd) references hoadon(sohd) on delete cascade,
+	foreign key (mamon) references monan(mamon) on delete cascade,
 );
 create table nhacungcap
 (
@@ -176,22 +179,22 @@ create table nguyenlieu
 	giatien int not null,
 	dvt nvarchar(10) not null,
 	mancc int,
-	foreign key (mancc) references nhacungcap(mancc)
+	foreign key (mancc) references nhacungcap(mancc) on delete cascade
 );
 create table phieunhap
 (
 	sopn int primary key,
 	ngaynhap datetime not null,
 	manv int,
-	foreign key (manv) references nhanvien(manv)
+	foreign key (manv) references nhanvien(manv) on delete cascade
 );
 create table chitietphieunhap
 (
 	sopn int,
 	manl int,
 	soluong int,
-	foreign key (sopn) references phieunhap(sopn),
-	foreign key (manl) references nguyenlieu(manl)
+	foreign key (sopn) references phieunhap(sopn) on delete cascade,
+	foreign key (manl) references nguyenlieu(manl) on delete cascade
 );
 
 create table phieuxuat
@@ -199,15 +202,15 @@ create table phieuxuat
 	sopx int primary key,
 	ngayxuat datetime not null,
 	manv int,
-	foreign key (manv) references nhanvien(manv)
+	foreign key (manv) references nhanvien(manv) on delete cascade
 );
 create table chitietphieuxuat
 (
 	sopx int,
 	manl int,
 	soluong int,
-	foreign key (sopx) references phieuxuat(sopx),
-	foreign key (manl) references nguyenlieu(manl)
+	foreign key (sopx) references phieuxuat(sopx) on delete cascade,
+	foreign key (manl) references nguyenlieu(manl) on delete cascade
 );
 --Danh sách món ăn của bàn
 create proc sp_DanhSachMonAnCuaBan
@@ -222,8 +225,7 @@ create proc sp_DanhSachMonAnCuaBan
 			where hd.sohd = cthd.sohd and m.mamon = cthd.mamon and hd.giora = hd.giovao and hd.soban = @soban --Ngày là null : chưa thanh toán
 		end
 		--Test thử với danh sách món ăn bàn 5
-		
-		execute sp_DanhSachMonAnCuaBan 3;
+		execute sp_DanhSachMonAnCuaBan 1;
 		
 --Thanh Toán
 create proc sp_ThanhToan
@@ -252,6 +254,7 @@ as
 		update ban set trangthai = 0 where soban = @soban;
 		insert into hoadon(sohd, giovao,giora, soban, manv) values (@sohd, @now,@now,@soban, @manv); 
 	end
+	
 	drop proc sp_datBan
 	select * from hoadon
 	select * from chitiethoadon
@@ -260,7 +263,7 @@ as
 delete from chitiethoadon
 delete from hoadon
 
-update ban set trangthai = 1 where soban =6
+update ban set trangthai = 1 
 
 --Doanh thu theo tháng
 	create proc sp_DoanhThuTheoThang
@@ -363,7 +366,7 @@ create proc sp_TinhTienCuaHoaDon
 			order by x.soluong desc
 		end
 		drop proc sp_ThongKeSoLuongMonAnBanDuocTuNgayDenNgay
-		
+		select manl from nguyenlieu where mancc = 3;
 
 insert into nguyenlieu(manl, tennl,  dvt, giatien, mancc) values 
 (2,N'2',N'2',100000,2)
@@ -417,3 +420,4 @@ as
 	delete  from ban where soban = 19
 	
 	select * from nguyenlieu;
+

@@ -26,5 +26,24 @@ namespace BTL.Model
             this.ban = ban;
             this.ds_mon = ds_mon;
         }
+
+        public int getTotalPrice()
+        {
+            int result = 0;
+            ds_mon.ForEach(ct =>
+            {
+                result += ct.soluong * ct.mon.gia;
+            });
+            return result;
+        }
+        public int getTotal()
+        {
+            int result = 0;
+            ds_mon.ForEach(ct =>
+            {
+                result += ct.soluong;
+            });
+            return result;
+        }
     }
 }

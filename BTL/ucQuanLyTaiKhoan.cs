@@ -22,6 +22,7 @@ namespace BTL
         private string action = "";
         private int rowIndex = -1;
         private List<NhanVien> ds_nv = new List<NhanVien>();
+        private DAO.DAO_NhanVien dao_nv = new DAO.DAO_NhanVien();
         public ucQuanLyTaiKhoan()
         {
             InitializeComponent();
@@ -32,35 +33,21 @@ namespace BTL
             cnn = new SqlConnection(
                 @"Data Source=DESKTOP-NIULDEP\SQLEXPRESS;Initial Catalog=btl_pttkht;User ID=sa;Password=password"
             );
-            cnn.Open();
-            scm = new SqlCommand("select * from nhanvien", cnn);
-            reader = scm.ExecuteReader();
-            while(reader.Read()){
-                int manv = reader.GetInt32(0);
-                string tennv = reader.GetString(1);
-                DateTime ngaysinh = reader.GetDateTime(7);
-                string gioitinh = reader.GetString(2);
-                string sdt = reader.GetString(3);
-                string chucvu = reader.GetString(4);
-                string quyen = reader.GetString(6);
-                string matkhau = reader.GetString(5);
+            ds_nv = dao_nv.getAll();
+            ds_nv.ForEach(nv =>
+            {
                 dgvEmployee.Rows.Add(new object[]{
-                    manv,
-                    tennv,
-                    ngaysinh.Date.ToString("dd/MM/yyyy"),
-                    gioitinh,
-                    sdt,
-                    chucvu,
-                    quyen,
-                    matkhau
+                    nv.ma,
+                    nv.ten,
+                    nv.ngaysinh.Date.ToString("dd/MM/yyyy"),
+                    nv.gioitinh,
+                    nv.diachi,
+                    nv.sdt,
+                    nv.chucvu
                 });
-                NhanVien nv = new NhanVien(
-                    tennv, ngaysinh, gioitinh, manv, sdt, chucvu, quyen, matkhau
-                );
-                cbId.Items.Add(manv);
-                ds_nv.Add(nv);
-            }
-            cnn.Close();
+                cbId.Items.Add(nv.ma);
+            });
+            dgvEmployee.ClearSelection();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -94,10 +81,8 @@ namespace BTL
             txtPhone.Enabled = status;
             cbId.Enabled = status;
             cbGender.Enabled = status;
-            cbPermission.Enabled = status;
             cbPosition.Enabled = status;
             dateTime.Enabled = status;
-            txtPassword.Enabled = status;
             btnSave.Enabled = status;
         }
 
@@ -125,115 +110,100 @@ namespace BTL
         {
             txtName.Text = "";
             txtPhone.Text = "";
-            txtPassword.Text = "";
             if(action == ADD)
             {
-                cbId.Text = "" + (ds_nv[ds_nv.Count - 1].ma + 1);
-            }
-        }
-
-        private void dgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex >= 0 && e.RowIndex<dgvEmployee.Rows.Count - 1)
-            {
-                rowIndex = e.RowIndex;
+                if(ds_nv.Count > 0)
+                {
+                    cbId.Text = "" + (ds_nv[ds_nv.Count - 1].ma + 1);
+                }
+                else
+                {
+                    cbId.Text = "1";
+                }
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(rowIndex != -1)
+            for (int i = dgvEmployee.SelectedRows.Count - 1; i >= 0; i--)
             {
-                try
+                int index = dgvEmployee.SelectedRows[i].Index;
+                DialogResult answer = MessageBox.Show(
+                    this,
+                    $@"Các dữ liệu liên quan đến nhân viên <{ds_nv[rowIndex].ten}> sẽ bị xoá. Bạn có chắn chắn xoá không ?",
+                    "Xác nhận",
+                    MessageBoxButtons.YesNo);
+                if (answer == DialogResult.Yes)
                 {
-                    cnn.Open();
-                    scm = new SqlCommand("delete from nhanvien where manv = " + ds_nv[rowIndex].ma, cnn);
-                    scm.ExecuteNonQuery();
-                    cnn.Close();
-                    ds_nv.RemoveAt(rowIndex);
-                    dgvEmployee.Rows.RemoveAt(rowIndex);
-                    cbId.Items.RemoveAt(rowIndex);
+                    dao_nv.deleteById(ds_nv[index].ma);
+                    ds_nv.RemoveAt(index);
+                    dgvEmployee.Rows.RemoveAt(index);
+                    cbId.Items.RemoveAt(index);
                     rowIndex = -1;
+                    dgvEmployee.ClearSelection();
                 }
-                catch (SqlException err)
-                {
-                    Console.WriteLine(err);
-                    MessageBox.Show(this, "Xoá không thành công", "Chú ý", MessageBoxButtons.OK);
-                }
-            }
-            else
-            {
-                MessageBox.Show(this, "Chưa chọn nhân viên", "Chú ý", MessageBoxButtons.OK);
             }
         }
 
         public void setData(NhanVien nv)
         {
             cbGender.Text = nv.gioitinh;
-            cbPermission.Text = nv.quyen;
             cbPosition.Text = nv.chucvu;
             txtName.Text = nv.ten;
             txtPhone.Text = nv.sdt;
-            txtPassword.Text = nv.matkhau;
             dateTime.Value = nv.ngaysinh;
         }
 
         public NhanVien getData()
         {
-            try
-            {
-                NhanVien nv = new NhanVien(
-                txtName.Text,
-                dateTime.Value,
-                cbGender.Text,
-                Convert.ToInt32(cbId.Text),
-                txtPhone.Text,
-                cbPosition.Text,
-                cbPermission.Text,
-                txtPassword.Text
-            );
-                return nv;
-            }
-            catch (FormatException err)
-            {
-                MessageBox.Show(this, "Mã Nhân Viên Không Hợp Lệ", "Chú ý", MessageBoxButtons.OK);
-                return null;
-            }
-            
-        }
-
-        public string validate_nv(NhanVien nv)
-        {
             string error = "";
-            if(nv.ten == "")
+            string manv = cbId.Text;
+            string ten = txtName.Text;
+            DateTime ngaysinh = dateTime.Value;
+            string sdt = txtPhone.Text;
+            string diachi = txtAddress.Text;
+            string chucvu = cbPosition.Text;
+            string gioitinh = cbGender.Text;
+            if (ten == "")
             {
                 error += "Tên không được để trống\n";
             }
-            if(nv.gioitinh == "Giới Tính")
-            {
-                error += "Chưa chọn giới tính\n";
-            }
-            if (nv.quyen == "Quyền")
-            {
-                error += "Chưa chọn quyền\n";
-            }
-            if (nv.chucvu == "Chức Vụ")
-            {
-                error += "Chưa chọn chức vụ\n";
-            }
-            if (nv.matkhau == "")
-            {
-                error += "Mật khẩu không được để trống\n";
-            }
-            if (nv.sdt.Length!=10)
-            {
-                error += "Số điện thoại chỉ có 10 số\n";
-            }
-            if ((DateTime.Now - nv.ngaysinh).Days <= 18*365)
+            if ((DateTime.Now - ngaysinh).Days <= 18 * 365)
             {
                 error += "Tuổi phải từ 18 trở lên\n";
             }
-            return error;
+            if (gioitinh == "")
+            {
+                error += "Chưa chọn giới tính\n";
+            }
+            if (diachi == "")
+            {
+                error += "Địa chỉ không được để trống\n";
+            }
+            if (sdt.Length != 10)
+            {
+                error += "Số điện thoại chỉ có 10 số\n";
+            }
+            if (chucvu == "")
+            {
+                error += "Chưa chọn chức vụ\n";
+            }
+            if(error == "")
+            {
+                NhanVien nv = new NhanVien(
+                    Convert.ToInt32(manv), 
+                    ten,
+                    ngaysinh,
+                    gioitinh,
+                    diachi,
+                    sdt,
+                    chucvu,
+                    "123456"
+                );
+                return nv;
+            }
+            return null;
+            
         }
 
         private void cbId_SelectedIndexChanged(object sender, EventArgs e)
@@ -250,67 +220,51 @@ namespace BTL
             NhanVien nv = getData();
             if (nv != null)
             {
-                string error = validate_nv(nv);
-                if (error == "")
+                
+                cnn.Open();
+                if (action == ADD)
                 {
-                    cnn.Open();
-                    if (action == ADD)
-                    {
-                        scm = new SqlCommand(
-                            "insert into nhanvien" +
-                            "(manv, tennv, ngaysinh, gioitinh, sdt, chucvu, matkhau, quyen) " +
-                            "values(" +
-                                nv.ma + ", " +
-                                "N'" + nv.ten + "', " +
-                                "'" + nv.ngaysinh + "', " +
-                                "N'" + nv.gioitinh + "', " +
-                                "'" + nv.sdt + "', " +
-                                "N'" + nv.chucvu + "', " +
-                                "'" + nv.matkhau + "', " +
-                                "'" + nv.quyen + "')", cnn);
-                        dgvEmployee.Rows.Add(new object[]{
+                    scm = new SqlCommand(
+                        $@"insert into nhanvien(manv, tennv, ngaysinh, gioitinh, sdt, chucvu, matkhau, diachi) values
+                            ({nv.ma}, N'{nv.ten}','{nv.ngaysinh}', N'{nv.gioitinh}', '{nv.sdt}', N'{nv.chucvu}', '{nv.matkhau}', N'{nv.diachi}'),", cnn);
+                    dgvEmployee.Rows.Add(new object[]{
                         nv.ma,
                         nv.ten,
                         nv.ngaysinh.Date.ToString("dd/MM/yyyy"),
                         nv.gioitinh,
+                        nv.diachi,
                         nv.sdt,
-                        nv.chucvu,
-                        nv.quyen,
-                        nv.matkhau
+                        nv.chucvu
                     });
-                        ds_nv.Add(nv);
-                        cbId.Items.Add(nv.ma);
-                    }
-                    else if (action == EDIT)
-                    {
-                        scm = new SqlCommand(
-                            "update nhanvien set " +
-                            "tennv = N'" + nv.ten + "'," +
-                            "gioitinh=N'" + nv.gioitinh + "', " +
-                            "ngaysinh='" + nv.ngaysinh + "', " +
-                            "sdt='" + nv.sdt + "', " +
-                            "chucvu=N'" + nv.chucvu + "', " +
-                            "matkhau='" + nv.matkhau + "', " +
-                            "quyen='" + nv.quyen + "' where " +
-                            "manv = " + nv.ma, cnn);
-                        int index = ds_nv.FindIndex(item => item.ma == nv.ma);
-                        ds_nv[index] = nv;
-                        dgvEmployee.Rows[index].Cells[1].Value = nv.ten;
-                        dgvEmployee.Rows[index].Cells[2].Value = nv.ngaysinh;
-                        dgvEmployee.Rows[index].Cells[3].Value = nv.gioitinh;
-                        dgvEmployee.Rows[index].Cells[4].Value = nv.sdt;
-                        dgvEmployee.Rows[index].Cells[5].Value = nv.chucvu;
-                        dgvEmployee.Rows[index].Cells[6].Value = nv.quyen;
-                        dgvEmployee.Rows[index].Cells[7].Value = nv.matkhau;
-                    }
-                    scm.ExecuteNonQuery();
-                    cnn.Close();
-                    reset();
+                    ds_nv.Add(nv);
+                    cbId.Items.Add(nv.ma);
                 }
-                else
+                else if (action == EDIT)
                 {
-                    MessageBox.Show(this, error, "Chú ý", MessageBoxButtons.OK);
+                    scm = new SqlCommand(
+                        $@"update nhanvien set 
+                        tennv = N'{nv.ten}', 
+                        ngaysinh = '{nv.ngaysinh}', 
+                        gioitinh = N'{nv.gioitinh}', 
+                        diachi = N'{nv.diachi}', 
+                        sdt ='{nv.sdt}',
+                        chucvu =N'{nv.chucvu}',
+                        matkhau='{nv.matkhau}'
+                        where manv ={nv.ma}", cnn);
+                    int index = ds_nv.FindIndex(item => item.ma == nv.ma);
+                    ds_nv[index] = nv;
+                    dgvEmployee.Rows[index].Cells[1].Value = nv.ten;
+                    dgvEmployee.Rows[index].Cells[2].Value = nv.ngaysinh.Date.ToString("dd/MM/yyyy");
+                    dgvEmployee.Rows[index].Cells[3].Value = nv.gioitinh;
+                    dgvEmployee.Rows[index].Cells[4].Value = nv.diachi;
+                    dgvEmployee.Rows[index].Cells[5].Value = nv.sdt;
+                    dgvEmployee.Rows[index].Cells[6].Value = nv.chucvu;
                 }
+                scm.ExecuteNonQuery();
+                cnn.Close();
+                dgvEmployee.ClearSelection();
+                reset();
+                
             }
         }
 
@@ -318,6 +272,7 @@ namespace BTL
         {
             if (!char.IsDigit(e.KeyChar)) e.Handled = true;
             if (txtPhone.Text.Length > 10) e.Handled = true;
+            if (e.KeyChar == (char)8) e.Handled = false;
         }
 
         private void cbPermission_KeyPress(object sender, KeyPressEventArgs e)
@@ -341,6 +296,11 @@ namespace BTL
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }

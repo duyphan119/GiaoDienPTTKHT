@@ -28,13 +28,6 @@ namespace BTL
         private void TrangChu_Load(object sender, EventArgs e)
         {
             panel2.Controls.Add(new ucTrangChu());
-            ToolTip tip = new ToolTip();
-            lblInfoEmployee.Text = "Nhân viên: " + nv.ten;
-            if (nv.quyen == "user")
-            {
-                rjButton5.Location = new Point(rjButton3.Location.X, rjButton3.Location.Y);
-                rjButton3.Visible = false;
-            }
         }
 
         public void clearBtnClick()
@@ -253,6 +246,18 @@ namespace BTL
         private void label1_Click(object sender, EventArgs e)
         {
             panel3.Visible = !panel3.Visible;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            new DangNhap().Visible = true;
+            Visible = false;
+        }
+
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            new ChangePassword(nv).Visible = true;
         }
     }
 }

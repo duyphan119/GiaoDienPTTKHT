@@ -22,6 +22,7 @@ namespace BTL
         private List<Phieu> ds_ph = new List<Phieu>();
         private ucNhapKho nk;
         private ucXuatKho xk;
+        private DAO.DAO_NhanVien dao_nv = new DAO.DAO_NhanVien();
 
         public DSPhieu(ucNhapKho _nk, ucXuatKho _xk)
         {
@@ -44,28 +45,10 @@ namespace BTL
             //kieu = false: xuất kho
             dgvList.Rows.Clear();
             ds_ph.Clear();
+            ds_nv = dao_nv.getAll();
             cnn = new SqlConnection(
                 @"Data Source=DESKTOP-NIULDEP\SQLEXPRESS;Initial Catalog=btl_pttkht;User ID=sa;Password=password"
             );
-            cnn.Open();
-            scm = new SqlCommand("select * from nhanvien", cnn);
-            reader = scm.ExecuteReader();
-            while (reader.Read())
-            {
-                int ma = reader.GetInt32(0);
-                string ten = reader.GetString(1);
-                string gioitinh = reader.GetString(2);
-                string sdt = reader.GetString(3);
-                string chucvu = reader.GetString(4);
-                string matkhau = reader.GetString(5);
-                string quyen = reader.GetString(6);
-                DateTime ngaysinh = reader.GetDateTime(7);
-                NhanVien nv = new NhanVien(
-                    ten, ngaysinh, gioitinh, ma, sdt, chucvu, quyen, matkhau
-                );
-                ds_nv.Add(nv);
-            }
-            cnn.Close();
             cnn.Open();
             if(kieu == true)
             {

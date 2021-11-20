@@ -81,7 +81,6 @@ D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.csproj.Copy
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.exe
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.pdb
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.NhapKho.resources
-D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.XuatKho.resources
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\RdlCompile.cache
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\RdlCompile.compiled
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\bin\Debug\EntityFramework.dll
@@ -154,3 +153,6 @@ D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucNhapKho.r
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucXuatKho.resources
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.DSPhieu.resources
 D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucNguyenLieu.resources
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ChangePassword.resources
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucCardFood.resources
+D:\Documents\Cs\GiaoDienPTTKHT-main\GiaoDienPTTKHT\BTL\obj\Debug\BTL.ucBan.resources

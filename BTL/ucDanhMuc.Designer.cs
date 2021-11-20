@@ -108,7 +108,7 @@ namespace BTL
             // 
             this.panel1.Location = new System.Drawing.Point(0, 116);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 553);
+            this.panel1.Size = new System.Drawing.Size(1481, 593);
             this.panel1.TabIndex = 7;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -122,7 +122,7 @@ namespace BTL
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.btnManagerAcount);
             this.Name = "ucDanhMuc";
-            this.Size = new System.Drawing.Size(1020, 669);
+            this.Size = new System.Drawing.Size(1484, 712);
             this.ResumeLayout(false);
 
         }

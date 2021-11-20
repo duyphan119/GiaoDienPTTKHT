@@ -80,12 +80,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ConnectDatabase.cs" />
+    <Compile Include="DAO\DAO_NhanVien.cs" />
     <Compile Include="DSPhieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +149,23 @@
     <Compile Include="TrangChu.Designer.cs">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBan.Designer.cs">
+      <DependentUpon>ucBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucBanHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucBanHang.Designer.cs">
       <DependentUpon>ucBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCardFood.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCardFood.Designer.cs">
+      <DependentUpon>ucCardFood.cs</DependentUpon>
     </Compile>
     <Compile Include="ucDanhMuc.cs">
       <SubType>UserControl</SubType>
@@ -219,12 +239,9 @@
     <Compile Include="ucXuatKho.Designer.cs">
       <DependentUpon>ucXuatKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="XuatKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XuatKho.Designer.cs">
-      <DependentUpon>XuatKho.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,8 +268,14 @@
     <EmbeddedResource Include="TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucBan.resx">
+      <DependentUpon>ucBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucBanHang.resx">
       <DependentUpon>ucBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCardFood.resx">
+      <DependentUpon>ucCardFood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucDanhMuc.resx">
       <DependentUpon>ucDanhMuc.cs</DependentUpon>
@@ -289,9 +312,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucXuatKho.resx">
       <DependentUpon>ucXuatKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XuatKho.resx">
-      <DependentUpon>XuatKho.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="MyDataSet.xsc">
       <DependentUpon>MyDataSet.xsd</DependentUpon>

@@ -46,7 +46,7 @@ namespace BTL
             this.panel3.Controls.Add(this.btnSupplier);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1020, 77);
+            this.panel3.Size = new System.Drawing.Size(1484, 77);
             this.panel3.TabIndex = 23;
             // 
             // btnExport
@@ -121,7 +121,7 @@ namespace BTL
             // 
             this.panel1.Location = new System.Drawing.Point(0, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 586);
+            this.panel1.Size = new System.Drawing.Size(1484, 629);
             this.panel1.TabIndex = 24;
             // 
             // ucKhoHang
@@ -131,7 +131,7 @@ namespace BTL
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Name = "ucKhoHang";
-            this.Size = new System.Drawing.Size(1020, 669);
+            this.Size = new System.Drawing.Size(1484, 712);
             this.Load += new System.EventHandler(this.ucKhoHang_Load);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);

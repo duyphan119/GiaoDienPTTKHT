@@ -22,10 +22,14 @@ namespace BTL
         private string action;
         private List<NhaCungCap> ds_ncc = new List<NhaCungCap>();
         private List<NguyenLieu> ds_nl = new List<NguyenLieu>();
-        private List<Phieu> ds_ph = new List<Phieu>();
+        private List<Phieu> ds_pn = new List<Phieu>();
+        private List<Phieu> ds_px = new List<Phieu>();
+        private List<NhanVien> ds_nv = new List<NhanVien>();
         private List<int> ds_tonkho = new List<int>();
-        private Phieu phieu = new Phieu();
+        private Phieu phieuNhap = new Phieu();
+        private Phieu phieuXuat = new Phieu();
         private NhanVien nv;
+        private DAO.DAO_NhanVien dao_nv = new DAO.DAO_NhanVien();
         public ucNguyenLieu(NhanVien x)
         {
             InitializeComponent();
@@ -37,6 +41,22 @@ namespace BTL
             cnn = new SqlConnection(
                 @"Data Source=DESKTOP-NIULDEP\SQLEXPRESS;Initial Catalog=btl_pttkht;User ID=sa;Password=password"
             );
+            dgvProduct.Rows.Add(new object[]
+            {
+                "","","","","",""
+            });
+            dgvProduct.Rows.RemoveAt(0);
+            dgvImport.Rows.Add(new object[]
+            {
+                "","",""
+            });
+            dgvImport.Rows.RemoveAt(0);
+            dgvExport.Rows.Add(new object[]
+            {
+                "","",""
+            });
+            dgvExport.Rows.RemoveAt(0);
+
             cnn.Open();
             scm = new SqlCommand("select * from nhacungcap", cnn);
             reader = scm.ExecuteReader();
@@ -88,6 +108,71 @@ namespace BTL
                 cnn.Close();
             }
             dgvProduct.ClearSelection();
+            ds_nv = dao_nv.getAll();
+            cnn.Open();
+            scm = new SqlCommand("select * from phieunhap", cnn);
+            reader = scm.ExecuteReader();
+            while (reader.Read())
+            {
+                int ma = reader.GetInt32(0);
+                DateTime ngay = reader.GetDateTime(1);
+                int manv = reader.GetInt32(2);
+                NhanVien _nv = ds_nv.Find(item => item.ma == manv);
+                Phieu pn = new Phieu(ma, ngay, _nv, new List<ChiTietPhieu>());
+                ds_pn.Add(pn);
+                dgvImport.Rows.Add(new object[]
+                {
+                    pn.sophieu, pn.ngay, pn.nv.ten
+                });
+            }
+            cnn.Close();
+            for(int i = 0;i< ds_pn.Count; i++)
+            {
+                cnn.Open();
+                scm = new SqlCommand($"select manl, soluong from chitietphieunhap where sopn = {ds_pn[i].sophieu}", cnn);
+                reader = scm.ExecuteReader();
+                while (reader.Read())
+                {
+                    int manl = reader.GetInt32(0);
+                    int soluong = reader.GetInt32(1);
+                    NguyenLieu _nl =  ds_nl.Find(item => item.ma == manl);
+                    ds_pn[i].list.Add(new ChiTietPhieu(_nl, soluong));
+                }
+                cnn.Close();
+            }
+            dgvImport.ClearSelection();
+            cnn.Open();
+            scm = new SqlCommand("select * from phieuxuat", cnn);
+            reader = scm.ExecuteReader();
+            while (reader.Read())
+            {
+                int ma = reader.GetInt32(0);
+                DateTime ngay = reader.GetDateTime(1);
+                int manv = reader.GetInt32(2);
+                NhanVien _nv = ds_nv.Find(item => item.ma == manv);
+                Phieu px = new Phieu(ma, ngay, _nv, new List<ChiTietPhieu>());
+                ds_px.Add(px);
+                dgvExport.Rows.Add(new object[]
+                {
+                    px.sophieu, px.ngay, px.nv.ten
+                });
+            }
+            cnn.Close();
+            dgvExport.ClearSelection();
+            for (int i = 0; i < ds_px.Count; i++)
+            {
+                cnn.Open();
+                scm = new SqlCommand($"select manl, soluong from chitietphieuxuat where sopx = {ds_px[i].sophieu}", cnn);
+                reader = scm.ExecuteReader();
+                while (reader.Read())
+                {
+                    int manl = reader.GetInt32(0);
+                    int soluong = reader.GetInt32(1);
+                    NguyenLieu _nl = ds_nl.Find(item => item.ma == manl);
+                    ds_px[i].list.Add(new ChiTietPhieu(_nl, soluong));
+                }
+                cnn.Close();
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -280,7 +365,7 @@ namespace BTL
                         $@"Nguyên liệu <{ds_nl[index].ten}> có liên quan đến các dữ liệu khác. Bạn có thật sự muốn xoá ?",
                         "Lưu ý", 
                         MessageBoxButtons.YesNo, 
-                        MessageBoxIcon.Stop);
+                        MessageBoxIcon.Warning);
                     if(answer == DialogResult.Yes)
                     {
                         cnn.Open();
@@ -313,6 +398,117 @@ namespace BTL
         private void cbId_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void btnAddImport_Click(object sender, EventArgs e)
+        {
+            Parent.Controls.Add(new ucNhapKho(nv));
+            Parent.Controls.Remove(this);
+        }
+
+        private void rjButton5_Click(object sender, EventArgs e)
+        {
+            ucNhapKho nk = new ucNhapKho(nv);
+            Parent.Controls.Add(nk);
+            nk.moPhieu(phieuNhap);
+            Parent.Controls.Remove(this);
+        }
+
+        private void dgvImport_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            phieuNhap = ds_pn[e.RowIndex];
+        }
+
+        private void rjButton8_Click(object sender, EventArgs e)
+        {
+            ucXuatKho xk = new ucXuatKho(nv);
+            Parent.Controls.Add(xk);
+            xk.moPhieu(phieuXuat);
+            Parent.Controls.Remove(this);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvExport_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            phieuXuat = ds_px[e.RowIndex];
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            //Xoá phiếu nhập
+            int index = dgvImport.SelectedRows[0].Index;
+            DialogResult answer = MessageBox.Show(this,
+                    $@"Bạn có thật sự muốn xoá ?",
+                    "Lưu ý",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+            if (answer == DialogResult.Yes)
+            {
+                cnn.Open();
+                scm = new SqlCommand($@"delete from chitietphieunhap where sopn = {ds_pn[index].sophieu};
+                            delete from phieunhap where sopn = {ds_pn[index].sophieu};", cnn);
+                scm.ExecuteNonQuery();
+                cnn.Close();
+                dgvImport.Rows.RemoveAt(index);
+                ds_pn.RemoveAt(index);
+                ds_tonkho.Clear();
+                for (int i = 0; i < ds_nl.Count; i++)
+                {
+                    cnn.Open();
+                    scm = new SqlCommand($"execute sp_TonKhoCuaNguyenLieu {ds_nl[i].ma}", cnn);
+                    reader = scm.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ds_tonkho.Add(reader.GetInt32(0));
+                        dgvProduct.Rows[i].Cells[4].Value = reader.GetInt32(0);
+                    }
+                    cnn.Close();
+                }
+            }
+        }
+
+        private void rjButton9_Click(object sender, EventArgs e)
+        {
+            //Xoá phiếu xuất
+            int index = dgvExport.SelectedRows[0].Index;
+            DialogResult answer = MessageBox.Show(this,
+                    $@"Bạn có thật sự muốn xoá ?",
+                    "Lưu ý",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+            if (answer == DialogResult.Yes)
+            {
+                cnn.Open();
+                scm = new SqlCommand($@"delete from chitietphieuxuat where sopx = {ds_px[index].sophieu};
+                            delete from phieunhap where sopx = {ds_px[index].sophieu};", cnn);
+                scm.ExecuteNonQuery();
+                cnn.Close();
+                dgvExport.Rows.RemoveAt(index);
+                ds_px.RemoveAt(index);
+                ds_tonkho.Clear();
+                for (int i = 0; i < ds_nl.Count; i++)
+                {
+                    cnn.Open();
+                    scm = new SqlCommand($"execute sp_TonKhoCuaNguyenLieu {ds_nl[i].ma}", cnn);
+                    reader = scm.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ds_tonkho.Add(reader.GetInt32(0));
+                        dgvProduct.Rows[i].Cells[4].Value = reader.GetInt32(0);
+                    }
+                    cnn.Close();
+                }
+            }
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            Parent.Controls.Add(new ucXuatKho(nv));
+            Parent.Controls.Remove(this);
         }
     }
 }

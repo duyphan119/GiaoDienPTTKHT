@@ -18,6 +18,7 @@ namespace BTL
         private SqlConnection cnn;
         private SqlCommand scm;
         private SqlDataReader reader;
+        private DAO.DAO_NhanVien dao_nv = new DAO.DAO_NhanVien();
         public DangNhap()
         {
             InitializeComponent();
@@ -35,37 +36,22 @@ namespace BTL
         {
             try
             {
-                cnn.Open();
-                // scm = new SqlCommand("select * from nhanvien where manv = " + Convert.ToInt32(txtID.Text) + " and matkhau = '" + txtPassword.Text + "'", cnn);
-                scm = new SqlCommand("select * from nhanvien where manv = 1 and matkhau = '123456'", cnn);
-                reader = scm.ExecuteReader();
-                if (reader.Read())
+                NhanVien nv = dao_nv.login(5, "123456");
+                if (nv != null)
                 {
-                    int ma = reader.GetInt32(0);
-                    string ten = reader.GetString(1);
-                    string gioitinh = reader.GetString(2);
-                    string sdt = reader.GetString(3);
-                    string chucvu = reader.GetString(4);
-                    string matkhau = reader.GetString(5);
-                    string quyen = reader.GetString(6);
-                    DateTime ngaysinh = reader.GetDateTime(7);
-                    NhanVien nv = new NhanVien(
-                        ten, ngaysinh, gioitinh, ma, sdt, chucvu, quyen, matkhau
-                    );
                     new TrangChu(nv).Visible = true;
                     Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("Sai mật khẩu");
+                    MessageBox.Show(this,"Mã nhân viên hoặc mật khẩu không chính xác","Lưu ý",MessageBoxButtons.OK,MessageBoxIcon.Stop);
                 }
-                cnn.Close();
             }
-            catch(FormatException err)
+            catch(SqlException err)
             {
                 Console.WriteLine(err);
-                MessageBox.Show("Sai mật khẩu");
                 cnn.Close();
+                MessageBox.Show(this, "Mã nhân viên hoặc mật khẩu không chính xác", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 

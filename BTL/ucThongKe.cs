@@ -23,6 +23,7 @@ namespace BTL
         private List<NhanVien> ds_nv = new List<NhanVien>();
         private List<MonAn> ds_mon = new List<MonAn>();
         private List<NhomMon> ds_nhom = new List<NhomMon>();
+        private DAO.DAO_NhanVien dao_nv = new DAO.DAO_NhanVien();
         public ucThongKe()
         {
             InitializeComponent();
@@ -177,25 +178,7 @@ namespace BTL
             }
             cnn.Close();
             //Lấy danh sách nhân viên
-            cnn.Open();
-            scm = new SqlCommand("select * from nhanvien ", cnn);
-            reader = scm.ExecuteReader();
-            while (reader.Read())
-            {
-                int manv = reader.GetInt32(0);
-                string tennv = reader.GetString(1);
-                DateTime ngaysinh = reader.GetDateTime(7);
-                string gioitinh = reader.GetString(2);
-                string sdt = reader.GetString(3);
-                string chucvu = reader.GetString(4);
-                string quyen = reader.GetString(6);
-                string matkhau = reader.GetString(5);
-                NhanVien nv = new NhanVien(
-                    tennv, ngaysinh, gioitinh, manv, sdt, chucvu, quyen, matkhau
-                );
-                ds_nv.Add(nv);
-            }
-            cnn.Close();
+            ds_nv = dao_nv.getAll();
             //Lấy danh sách nhóm
             cnn.Open();
             scm = new SqlCommand("select * from nhommon", cnn);
@@ -267,6 +250,11 @@ namespace BTL
             totalTable.Text = "Tổng số bàn: " + ds_ban.Count;
             totalFood.Text = "Tổng số món: " + ds_mon.Count;
             totalGroup.Text = "Tổng số nhóm món: " + ds_nhom.Count;
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
