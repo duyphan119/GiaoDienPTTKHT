@@ -13,7 +13,7 @@ create table nhanvien
 	matkhau varchar(100) not null,
 );
 
-select * from nhanvien
+select * from chitiethoadon
 
 insert into nhanvien(manv, tennv, ngaysinh, gioitinh, sdt, chucvu, matkhau, diachi) values
 (1, N'Phan Khánh Duy','1989-01-01', N'Nam', '0375593241', N'Giám Đốc', '123456', N'306 Xa lộ Hà Nội, Hiệp Phú, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh'),

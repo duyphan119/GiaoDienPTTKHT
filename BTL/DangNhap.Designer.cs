@@ -132,7 +132,7 @@ namespace BTL
             this.rjButton1.BackColor = System.Drawing.Color.RoyalBlue;
             this.rjButton1.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 20;
+            this.rjButton1.BorderRadius = 2;
             this.rjButton1.BorderSize = 0;
             this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton1.FlatAppearance.BorderSize = 0;

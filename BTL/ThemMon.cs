@@ -53,6 +53,14 @@ namespace BTL
             }
             cnn.Close();
             cbGroup.SelectedIndex = 0;
+            if(ds_mon_da_chon.Count == 0)
+            {
+                dgvResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            }
+            else
+            {
+                dgvResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            }
             ds_mon_da_chon.ForEach(ct =>
             {
                 dgvResult.Rows.Add(new object[]
@@ -61,6 +69,7 @@ namespace BTL
                 });
             });
             total = hd.getTotal();
+            dgvResult.ClearSelection();
             lblTotalFood.Text = "Số món đã chọn: " + total;
         }
 
@@ -120,6 +129,8 @@ namespace BTL
                         mon.ten, soluong
                     });
                     total++;
+                    dgvResult.ClearSelection();
+                    dgvResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 }
                 else//Cập nhật số lượng
                 {

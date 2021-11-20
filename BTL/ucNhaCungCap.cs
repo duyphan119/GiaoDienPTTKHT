@@ -78,6 +78,11 @@ namespace BTL
 
         private void ucNhaCungCap_Load(object sender, EventArgs e)
         {
+            dgvSupplier.Rows.Add(new object[]
+            {
+                "","","",""
+            });
+            dgvSupplier.Rows.RemoveAt(0);
             cnn = new SqlConnection(
                 @"Data Source=DESKTOP-NIULDEP\SQLEXPRESS;Initial Catalog=btl_pttkht;User ID=sa;Password=password"
             );

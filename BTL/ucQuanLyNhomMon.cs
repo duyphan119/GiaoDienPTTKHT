@@ -29,6 +29,8 @@ namespace BTL
 
         private void ucQuanLyNhomMon_Load(object sender, EventArgs e)
         {
+            dgvGroup.Rows.Add(new object[] { "", "" });
+            dgvGroup.Rows.RemoveAt(0);
             cnn = new SqlConnection(
                 @"Data Source=DESKTOP-NIULDEP\SQLEXPRESS;Initial Catalog=btl_pttkht;User ID=sa;Password=password"
             );
@@ -47,6 +49,7 @@ namespace BTL
                     nhom.ma, nhom.ten
                 });
             }
+            dgvGroup.ClearSelection();
             cnn.Close();
         }
 
@@ -105,6 +108,7 @@ namespace BTL
             {
                 setEnabled(true);
                 action = EDIT;
+                cbId.Text = "";
             }
         }
 
@@ -115,14 +119,25 @@ namespace BTL
                 for (int i = dgvGroup.SelectedRows.Count - 1; i >= 0; i--)
                 {
                     int index = dgvGroup.SelectedRows[i].Index;
-                    cnn.Open();
-                    scm = new SqlCommand("delete from nhommon where manhom = " + ds_nhom[index].ma, cnn);
-                    scm.ExecuteNonQuery();
-                    cnn.Close();
-                    dgvGroup.Rows.RemoveAt(index);
-                    ds_nhom.RemoveAt(index);
-                    cbId.Items.RemoveAt(index);
+                    DialogResult answer = MessageBox.Show(this, 
+                        $@"Dữ liệu liên quan đến Nhóm <{ds_nhom[index].ten}> cũng sẽ bị xoá. Bạn có chắc chắn xoá không ?", "Xác nhận", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (answer == DialogResult.Yes)
+                    {
+                        cnn.Open();
+                        scm = new SqlCommand($"delete from nhommon where manhom = {ds_nhom[index].ma}", cnn);
+                        scm.ExecuteNonQuery();
+                        cnn.Close();
+                        if(cbId.Text == "" + ds_nhom[index].ma)
+                        {
+                            txtName.Text = "";
+                        }
+
+                        dgvGroup.Rows.RemoveAt(index);
+                        ds_nhom.RemoveAt(index);
+                        cbId.Items.RemoveAt(index);
+                    }
                 }
+                dgvGroup.ClearSelection();
             }
             catch(SqlException er)
             {
@@ -160,11 +175,8 @@ namespace BTL
                     cnn.Open();
                     if (action == ADD)
                     {
-                        scm = new SqlCommand(
-                            "insert into nhommon (manhom, tennhom) " +
-                            "values(" +
-                                nhom.ma + ", " +
-                                "N'" + nhom.ten + "')", cnn);
+                        scm = new SqlCommand($@"insert into nhommon (manhom, tennhom) values
+                        ({nhom.ma},N'{nhom.ten}')", cnn);
                         ds_nhom.Add(nhom);
                         dgvGroup.Rows.Add(new object[]
                         {
@@ -174,11 +186,7 @@ namespace BTL
                     }
                     else if (action == EDIT)
                     {
-                        scm = new SqlCommand(
-                            "update nhommon set " +
-                            "tennhom = N'" + nhom.ten +
-                            "' where " +
-                            "manhom = " + nhom.ma, cnn);
+                        scm = new SqlCommand($@"update nhommon set tennhom = N'{nhom.ten}' where manhom = {nhom.ma}", cnn);
                         int index = ds_nhom.FindIndex(item => item.ma == nhom.ma);
                         dgvGroup.Rows[index].Cells[1].Value = nhom.ten;
                         ds_nhom[index] = nhom;
@@ -186,6 +194,7 @@ namespace BTL
                     scm.ExecuteNonQuery();
                     cnn.Close();
                     reset();
+                    dgvGroup.ClearSelection();
                 }
                 else
                 {

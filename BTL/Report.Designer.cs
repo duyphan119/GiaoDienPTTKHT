@@ -49,7 +49,7 @@ namespace BTL
             this.reportViewer2.Location = new System.Drawing.Point(3, 0);
             this.reportViewer2.Name = "reportViewer2";
             this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(755, 696);
+            this.reportViewer2.Size = new System.Drawing.Size(1078, 696);
             this.reportViewer2.TabIndex = 0;
             this.reportViewer2.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
@@ -57,12 +57,11 @@ namespace BTL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 697);
+            this.ClientSize = new System.Drawing.Size(1083, 697);
             this.Controls.Add(this.reportViewer2);
             this.Name = "Report";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoá Đơn";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Report_Load);
             this.ResumeLayout(false);
 

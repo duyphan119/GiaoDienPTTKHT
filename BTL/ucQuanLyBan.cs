@@ -24,6 +24,11 @@ namespace BTL
         public ucQuanLyBan()
         {
             InitializeComponent();
+            dgvTable.Rows.Add(new object[]
+            {
+                   "",""
+            });
+            dgvTable.Rows.RemoveAt(0);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,7 +50,7 @@ namespace BTL
                             ban.soban + ", " +
                             "N'" + ban.trangthai + "')", cnn);
                     ds_ban.Add(ban);
-                    dataGridView1.Rows.Add(new object[]
+                    dgvTable.Rows.Add(new object[]
                     {
                         ban.soban.ToString(), (ban.trangthai==true)?"Trống":"Có Khách"
                     });
@@ -59,12 +64,13 @@ namespace BTL
                         " where " +
                         "soban = " + ban.soban, cnn);
                     int index = ds_ban.FindIndex(item => item.soban == ban.soban);
-                    dataGridView1.Rows[index].Cells[1].Value = (ban.trangthai == true) ? "Trống" : "Có Khách";
+                    dgvTable.Rows[index].Cells[1].Value = (ban.trangthai == true) ? "Trống" : "Có Khách";
                     ds_ban[index] = ban;
                 }
                 scm.ExecuteNonQuery();
                 cnn.Close();
                 reset();
+                dgvTable.ClearSelection();
             }
         }
 
@@ -151,7 +157,7 @@ namespace BTL
             cnn.Open();
             scm = new SqlCommand("select * from ban", cnn);
             reader = scm.ExecuteReader();
-            dataGridView1.Rows.Clear();
+            dgvTable.Rows.Clear();
             ds_ban.Clear();
             cbId.Items.Clear();
             while (reader.Read())
@@ -161,12 +167,13 @@ namespace BTL
                 Ban ban = new Ban(soban, trangthai);
                 cbId.Items.Add(ban.soban);
                 ds_ban.Add(ban);
-                dataGridView1.Rows.Add(new object[]
+                dgvTable.Rows.Add(new object[]
                 {
                     ban.soban.ToString(), (ban.trangthai==true)?"Trống":"Có Khách"
                 });
             }
             cnn.Close();
+            dgvTable.ClearSelection();
         }
         public Ban getData()
         {
@@ -196,7 +203,7 @@ namespace BTL
                 scm = new SqlCommand("select * from ban", cnn);
             }
             reader = scm.ExecuteReader();
-            dataGridView1.Rows.Clear();
+            dgvTable.Rows.Clear();
             cbId.Items.Clear();
             ds_ban.Clear();
             while (reader.Read())
@@ -206,11 +213,12 @@ namespace BTL
                 Ban ban = new Ban(soban, trangthai);
                 cbId.Items.Add(ban.soban);
                 ds_ban.Add(ban);
-                dataGridView1.Rows.Add(new object[]
+                dgvTable.Rows.Add(new object[]
                 {
                     ban.soban.ToString(), (ban.trangthai==true)?"Trống":"Có Khách"
                 });
             }
+            dgvTable.ClearSelection();
             cnn.Close();
         }
 
@@ -218,21 +226,29 @@ namespace BTL
         {
             try
             {
-                for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                for (int i = dgvTable.SelectedRows.Count - 1; i >= 0; i--)
                 {
-                    int index = dataGridView1.SelectedRows[i].Index;
-                    cnn.Open();
-                    scm = new SqlCommand($"delete from ban where soban = {ds_ban[index].soban}", cnn);
-                    scm.ExecuteNonQuery();
-                    cnn.Close();
-                    dataGridView1.Rows.RemoveAt(index);
-                    ds_ban.RemoveAt(index);
-                    cbId.Items.RemoveAt(index);
+                    int index = dgvTable.SelectedRows[i].Index;
+                    DialogResult answer = MessageBox.Show(this, 
+                        $@"Dữ liệu liên quan đến bàn <{ds_ban[index].soban}> cũng sẽ bị xoá. Bạn có chắc chắn xoá không ?", 
+                        "Xác nhận", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (answer == DialogResult.Yes)
+                    {
+                        cnn.Open();
+                        scm = new SqlCommand($"delete from ban where soban = {ds_ban[index].soban}", cnn);
+                        scm.ExecuteNonQuery();
+                        cnn.Close();
+                        dgvTable.Rows.RemoveAt(index);
+                        ds_ban.RemoveAt(index);
+                        cbId.Items.RemoveAt(index);
+                    }
                 }
+                dgvTable.ClearSelection();
             }
             catch (SqlException er)
             {
-                MessageBox.Show(this, "Xoá không thành công", "Chú ý", MessageBoxButtons.OK);
+                cnn.Close();
+                MessageBox.Show(this, "Xoá không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 Console.WriteLine(er);
             }
         }

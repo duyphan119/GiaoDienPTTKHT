@@ -141,6 +141,7 @@ namespace BTL
                 });
                 total += totalPrice;
             });
+            dgvOrder.ClearSelection();
             totalPrice.Text = "Tổng tiền bán được: " + (total==0?""+0: total.ToString("#,##")) + "đ";
             totalFoodSelled.Text = "Số lượng món bán được: " + list_food.Count;
         }
@@ -160,6 +161,7 @@ namespace BTL
                     item.mon.nhom.ten
                 });
             });
+            dgvFood.ClearSelection();
         }
 
         private void ucThongKe_Load(object sender, EventArgs e)

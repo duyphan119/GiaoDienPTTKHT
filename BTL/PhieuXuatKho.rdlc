@@ -69,7 +69,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>Nhà hàng Hải Sản</Value>
+                    <Value>NHÀ HÀNG HẢI SẢN K60</Value>
                     <Style>
                       <FontSize>14pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -88,7 +88,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>Quận 9, TP HCM</Value>
+                    <Value>444 Lê Văn Việt, Phường Tăng Nhơn Phú A, Thành phố Thủ Đức, Thành phố Hồ Chí Minh</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -105,7 +105,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Height>0.55in</Height>
+            <Height>0.68055in</Height>
             <Width>8.73833in</Width>
             <Style>
               <Border>
@@ -183,7 +183,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>0.61944in</Top>
+            <Top>0.73611in</Top>
             <Height>0.69167in</Height>
             <Width>8.73833in</Width>
             <ZIndex>1</ZIndex>
@@ -229,7 +229,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.31111in</Top>
+            <Top>1.42778in</Top>
             <Height>0.53333in</Height>
             <Width>8.39167in</Width>
             <ZIndex>2</ZIndex>
@@ -845,7 +845,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>XuatKho_DataSet</DataSetName>
-            <Top>1.85833in</Top>
+            <Top>1.975in</Top>
             <Left>0.405in</Left>
             <Height>1.16666in</Height>
             <Width>7.98667in</Width>
@@ -886,7 +886,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox59</rd:DefaultName>
-            <Top>3.98526in</Top>
+            <Top>4.10193in</Top>
             <Left>0.46332in</Left>
             <Height>0.58333in</Height>
             <Width>1.56667in</Width>
@@ -931,7 +931,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox59</rd:DefaultName>
-            <Top>3.98526in</Top>
+            <Top>4.10193in</Top>
             <Left>2.32749in</Left>
             <Height>0.58333in</Height>
             <Width>1.56667in</Width>
@@ -976,7 +976,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox59</rd:DefaultName>
-            <Top>3.98526in</Top>
+            <Top>4.10193in</Top>
             <Left>4.21916in</Left>
             <Height>0.58333in</Height>
             <Width>1.56667in</Width>
@@ -1043,7 +1043,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox59</rd:DefaultName>
-            <Top>3.98526in</Top>
+            <Top>4.10193in</Top>
             <Left>6.13333in</Left>
             <Height>0.58333in</Height>
             <Width>2.25834in</Width>
@@ -1095,7 +1095,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox67</rd:DefaultName>
-            <Top>3.62776in</Top>
+            <Top>3.74443in</Top>
             <Left>2.32749in</Left>
             <Height>0.34361in</Height>
             <Width>6.06418in</Width>
@@ -1139,7 +1139,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>3.06666in</Top>
+            <Top>3.18333in</Top>
             <Height>0.53333in</Height>
             <Width>8.39167in</Width>
             <ZIndex>9</ZIndex>

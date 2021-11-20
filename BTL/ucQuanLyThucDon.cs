@@ -129,6 +129,7 @@ namespace BTL
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar)) e.Handled = true;
+            if (e.KeyChar == (char)8) e.Handled = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -168,14 +169,14 @@ namespace BTL
         private void btnEdit_Click(object sender, EventArgs e)
         {
             reset();
+            setEnabled(false);
             if (action == EDIT)
             {
-                setEnabled(false);
                 action = "";
             }
             else
             {
-                setEnabled(true);
+                cbId.Enabled = true;
                 action = EDIT;
             }
         }
@@ -226,6 +227,11 @@ namespace BTL
                 scm.ExecuteNonQuery();
                 cnn.Close();
                 reset();
+                int ind = cbUnit.Items.IndexOf(cbUnit.Text);
+                if(ind == -1)
+                {
+                    cbUnit.Items.Add(cbUnit.Text);
+                }
             }
         }
 
@@ -241,14 +247,21 @@ namespace BTL
                 for (int i = dgvFood.SelectedRows.Count - 1; i >= 0; i--)
                 {
                     int index = dgvFood.SelectedRows[i].Index;
-                    cnn.Open();
-                    scm = new SqlCommand("delete from monan where mamon = " + ds_mon[index].mamon, cnn);
-                    scm.ExecuteNonQuery();
-                    cnn.Close();
-                    dgvFood.Rows.RemoveAt(index);
-                    ds_mon.RemoveAt(index);
-                    cbId.Items.RemoveAt(index);
+                    DialogResult answer = MessageBox.Show(this,
+                        $@"Dữ liệu liên quan đến món <{ds_mon[index].ten}> cũng sẽ bị xoá. Bạn có chắc chắn xoá không ?",
+                        "Xác nhận", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (answer == DialogResult.Yes)
+                    {
+                        cnn.Open();
+                        scm = new SqlCommand($"delete from monan where mamon = {ds_mon[index].mamon}", cnn);
+                        scm.ExecuteNonQuery();
+                        cnn.Close();
+                        dgvFood.Rows.RemoveAt(index);
+                        ds_mon.RemoveAt(index);
+                        cbId.Items.RemoveAt(index);
+                    }
                 }
+                dgvFood.ClearSelection();
             }
             catch (SqlException er)
             {
@@ -259,11 +272,15 @@ namespace BTL
 
         private void cbId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MonAn mon = ds_mon[cbId.SelectedIndex];
-            cbGroup.Text = mon.nhom.ten;
-            txtName.Text = mon.ten;
-            cbUnit.Text = mon.dvt;
-            txtPrice.Text = mon.gia.ToString();
+            if(action == EDIT && cbId.SelectedIndex != -1)
+            {
+                MonAn mon = ds_mon[cbId.SelectedIndex];
+                cbGroup.Text = mon.nhom.ten;
+                txtName.Text = mon.ten;
+                cbUnit.Text = mon.dvt;
+                txtPrice.Text = mon.gia.ToString();
+                setEnabled(true);
+            }
         }
 
         private void txtKeyword_TextChanged(object sender, EventArgs e)
@@ -309,6 +326,26 @@ namespace BTL
                 cbId.Items.Add(mon.mamon);
             }
             cnn.Close();
+        }
+
+        private void cbUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbGroup_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

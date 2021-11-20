@@ -79,6 +79,7 @@ namespace BTL
         {
             txtName.Enabled = status;
             txtPhone.Enabled = status;
+            txtAddress.Enabled = status;
             cbId.Enabled = status;
             cbGender.Enabled = status;
             cbPosition.Enabled = status;

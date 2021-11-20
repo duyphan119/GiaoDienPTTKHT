@@ -31,7 +31,7 @@ namespace BTL
             }
             else
             {
-                rjButton1.BackColor = Color.Red;
+                rjButton1.BackColor = Color.LightCoral;
                 rjButton1.ForeColor = Color.White;
             }
         }
@@ -46,6 +46,14 @@ namespace BTL
         {
             //Xem thông tin
             preComponent.datMon(rjButton1, ban);
+        }
+
+        public void sauKhiThanhToan(Ban bn)
+        {
+            if(ban.soban == bn.soban)
+            {
+                rjButton1.BackColor = Color.RoyalBlue;
+            }
         }
     }
 }
